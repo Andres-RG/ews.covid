@@ -69,7 +69,7 @@ ggplot_uni_ews_covid
 #   ) +
 #   theme_classic()
 
-# covid <- owid_covid()
+# covid <- owid_covid() # de aqui se carga la base de datos de owid
 str(covid)
 covid.mx <- covid %>% filter(iso_code=="MEX")
 #> univariate data frame
@@ -106,6 +106,12 @@ plot(ews.uni.covid.mx3)
 # pdf("03_out/plots/ews.covidmx.pdf", height = 8, width = 10)
 # plot(ews.uni.covid.mx1)
 # plot(ews.uni.covid.mx2)
+# dev.off()
+
+# para guarda en calidad alta
+# tiff("03_out/plots/ews.covidmx.new.cases.tiff",
+#      units = "in", width=12, height=9, res=300)
+# plot(ews.uni.covid.mx1)
 # dev.off()
 ##------------------------------------------
 # se obtiene la incidencia diaria
