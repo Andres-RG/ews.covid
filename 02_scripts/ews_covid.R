@@ -110,7 +110,7 @@ plot(ews.uni.covid.mx3)
 
 # para guarda en calidad alta
 # tiff("03_out/plots/ews.covidmx.new.cases.tiff",
-#      units = "in", width=12, height=9, res=300)
+#      units = "in", width=8, height=6, res=300)
 # plot(ews.uni.covid.mx1)
 # dev.off()
 ##------------------------------------------
