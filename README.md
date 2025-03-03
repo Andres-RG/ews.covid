@@ -12,11 +12,8 @@ Para usar este repositorio, necesitas tener descargado o conectado el siguiente 
 Asegúrate de tener instaladas y cargadas las siguientes librerías en R:  
 
 ```r
-install.packages(c("tidyr", "tidyverse", "ggplot2", "dplyr"))
-# Para paquetes de CRAN
-install.packages("owidR", repos = "https://cran.r-project.org")
-# Para instalar EWSmethods desde GitHub (si es necesario)
-remotes::install_github("earlywarningtoolbox/EWSmethods")
+# Paquetes en CRAN
+install.packages(c("tidyr", "tidyverse", "ggplot2", "dplyr", "EWSmethods", "owidR"))
 
 # Cargar librerías
 library(tidyr)
@@ -29,8 +26,11 @@ library(dplyr)
 
 ## 📂 Estructura del repositorio
 📁 01_raw_data → Datos crudos de COVID-19.
+
 📁 02_scripts → Scripts de análisis y procesamiento.
+
 📁 03_out/plots → Gráficos generados del análisis.
+
 📁 04_functions → Funciones personalizadas para el análisis.
 
 ## 🚀 Uso
