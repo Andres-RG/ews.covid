@@ -34,7 +34,7 @@ library(dplyr)
 📁 04_functions → Funciones personalizadas para el análisis.
 
 ## 🚀 Uso
-Para ejecutar el análisis, clona el repositorio y corre los scripts en 02_scripts.
+Para ejecutar el análisis, clona el repositorio desde la terminal y corre los scripts en 02_scripts. O clona el repositorio desde git en Rstudio.
 
 ```bash
 git clone https://github.com/Andres-RG/ews.covid.git
