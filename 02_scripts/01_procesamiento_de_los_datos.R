@@ -15,4 +15,18 @@ covid.mx <- covid %>% filter(iso_code=="MEX")
 # save(covid.mx, file = "03_out/data/covid.mx.owid.RData")
 # para cargar estos datos:
 load(file = "03_out/data/covid.mx.owid.RData") # nombre del objeto: covid.mx
+##-----------------------------------------------
 
+# NOTA: Para filtrar para disntintos paises, cambiar el iso_code
+# eje:
+#       
+# "REU"     
+# "TKM"     
+# "OWID_WLS"
+# "GNB"     
+# "PRI"     
+# "OWID_NIR"
+# "ARG"     
+# "UKR"     
+# "TWN"     
+# "VIR"
