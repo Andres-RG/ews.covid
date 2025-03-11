@@ -15,7 +15,10 @@ library(EWSmethods)
 str(covid)
 #FILTRADO:
 covid_corea <- covid %>%filter(iso_code== "KOR")
+#PARA GUARDAR LA BASE DE DATOS POR PAIS:
+#save(objeto, "nombre del archivo.RData")
 
+#UNIVARIADAS:
 df_covid_corea <- data.frame(
   tiem = seq(1, length(covid_corea$date), 1) ,
   covid_corea[ ,5:16]
@@ -36,6 +39,9 @@ ews_univariado_corea <- uniEWS(data = df_covid_corea[-c(1:10),c(1,3)],
                                threshold = 2, #VARIANZAS
                                tail.direction = "one.tailed") 
 plot(ews_univariado_corea) 
+# pdf("03_out/plots/ews_univariado_Korea.nuevos.casos.pdf", height = 8, width = 10)
+# plot(ews_univariado_corea)
+# dev.off()
 
 ################################################################################
 names(df_covid_corea[-c(1:10),c(1,4)]) 
@@ -50,6 +56,10 @@ ews_univariado_corea_2 <- uniEWS(data = df_covid_corea[-c(1:10),c(1,4)] ,
                            tail.direction = "one.tailed")
 
 plot(ews_univariado_corea_2)
+# pdf("03_out/plots/ews_univariado_Korea.nuevos.smoothed.pdf", height = 8, width = 10)
+# plot(ews_univariado_corea_2)
+# dev.off()
+
 ##################################################################################
 names(df_covid_corea[-c(1:10),c(1,7)])
 #tiempo
@@ -62,5 +72,8 @@ ews_univariado_corea_3<- uniEWS(data = df_covid_corea[-c(1:10),c(1,7)] ,
                            threshold = 2,
                            tail.direction = "one.tailed")
 plot(ews_univariado_corea_3)
+# pdf("03_out/plots/ews_univariado_Korea.nuevos.deaths.smoothed.pdf", height = 8, width = 10)
+# plot(ews_univariado_corea_3)
+# dev.off()
 
 ##################################################################################

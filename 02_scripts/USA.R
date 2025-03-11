@@ -15,21 +15,33 @@ library(EWSmethods)
 ####USA####
 #1.- FILTRADO DE DATOS:
 #DATOS:
-  #covid <- owid_covid() # de aqui se carga la base de datos de owid
+  covid <- owid_covid() # de aqui se carga la base de datos de owid
+#save(objeto, "nombre del archivo.RData")
+  
+#cargar la nueva base de datos:
+covid_datos <- read.csv("01_raw_data/owid-covid-data.csv")
 
-str(covid)
+str(covid_datos)
+head(covid_datos)
 #FILTRADO:
-covid_usa <- covid %>%filter(iso_code== "USA")
+covid_usa <- covid_datos %>% filter(iso_code== "USA")
 
 df_covid_usa <- data.frame(
-  tiem = seq(1, length(covid_usa$date), 1) ,
-  covid_usa[ ,5:16]
+  time = seq(1, length(covid_usa$date), 1)     ,
+  covid_usa[ , 5:16]
 )
+length(df_covid_usa$date)
+
+#df.covid.mx <- data.frame(
+#  time = seq(1, length(covid.mx$date), 1)     ,
+ # covid.mx[ , 5:16]
+#)
 
 head(df_covid_usa)
 names(df_covid_usa)
 
 ##VECTOR CON LAS METRICAS:
+ews_metrics <- c("SD","ar1","skew")
 ews_metrics
 
 
@@ -50,19 +62,19 @@ summary(faltante_usa$new_cases) #tienen muchos NA :/
 datos_usa_sin_na <- df_covid_usa[!is.na(df_covid_usa$new_cases), ] #NO NA
 
 #interpolados:
-faltante_usa <- df_covid_usa[-c(1:10),c(1,3)] #<- na.approx(df$value)
-faltante_usa$new_cases_interpolate <- na.approx(faltante_usa$new_cases, rule = 2)
-head(faltante_usa)
+  #faltante_usa <- df_covid_usa[-c(1:10),c(1,3)] #<- na.approx(df$value)
+  #faltante_usa$new_cases_interpolate <- na.approx(faltante_usa$new_cases, rule = 2)
+  #head(faltante_usa)
 
 
-ews_univariado_usa<- uniEWS(data = faltante_usa[ ,c(1,3)], #datos interpolados; checar esto
-                            #algunos datos pueden NO dar la manera correcta.
-                               metrics =  ews_metrics, #VECTOR CON LAS METRICAS.
-                               method = "expanding", #VENTANA QUE SE EXPANDE
-                               burn_in = 10, #DE PREFERENCIA CON ESTOS DATOS.
-                               threshold = 2, #VARIANZAS
-                               tail.direction = "one.tailed") 
-plot(ews_univariado_usa) #muy parecida a la de mexico
+#ews_univariado_usa<- uniEWS(data = faltante_usa[ ,c(1,3)], #datos interpolados; checar esto
+ #                           #algunos datos pueden NO dar la manera correcta.
+  #                             metrics =  ews_metrics, #VECTOR CON LAS METRICAS.
+   #                            method = "expanding", #VENTANA QUE SE EXPANDE
+    #                           burn_in = 10, #DE PREFERENCIA CON ESTOS DATOS.
+     #                          threshold = 2, #VARIANZAS
+      #                         tail.direction = "one.tailed") 
+#plot(ews_univariado_usa) #muy parecida a la de mexico
  
 #datos_usa_sin_na
 

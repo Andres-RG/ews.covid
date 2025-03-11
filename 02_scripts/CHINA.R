@@ -6,6 +6,10 @@ str(covid)
 
 #FILTRADO:
 covid_china <- covid %>%filter(iso_code=="CHN")
+#PARA GUARDAR LA BASE DE DATOS POR PAIS:
+#save(objeto, "nombre del archivo.RData")
+
+#UNIVARIADAS:
 df_covid_china <- data.frame(
   tiem = seq(1, length(covid_china$date), 1) ,
   covid_china[ ,5:16]
@@ -33,6 +37,9 @@ ews_univariado_china <- uniEWS(data = df_covid_china[-c(1:10),c(1,3)],
       threshold = 2, #VARIANZAS
       tail.direction = "one.tailed") 
 plot(ews_univariado_china) 
+# pdf("03_out/plots/ews_univariado_china.nuevos.casos.pdf", height = 8, width = 10)
+# plot(ews_univariado_china)
+# dev.off()
 
 #############
 names(df_covid_china[-c(1:10),c(1,4)])
@@ -46,6 +53,10 @@ ews_univariado_china_2<- uniEWS(data = df_covid_china[-c(1:10),c(1,4)] ,
                            threshold = 2,
                            tail.direction = "one.tailed")
 plot(ews_univariado_china_2)
+# pdf("03_out/plots/ews_univariado_china.nuevos.suavizado.pdf", height = 8, width = 10)
+# plot(ews_univariado_china_2)
+# dev.off()
+
 ###############
 names(df_covid_china[-c(1:10),c(1,7)])
 #tiempo
@@ -60,6 +71,9 @@ faltante$new_deaths_smoothed_interpolated <- na.approx(faltante$new_deaths_smoot
 
 datos_china_sin_na <- df_covid_china[!is.na(df_covid_china$new_deaths_smoothed), ]
 
+#funcion:
+head(covid_usa[rowSums(is.na(covid_usa)) == 0,]) ## para eliminar reglones con NA
+
 ews_univariado_china_3<- uniEWS(data = datos_china_sin_na [-c(1:10),c(1,7)] ,
                            metrics =  ews_metrics,
                           method = "expanding",
@@ -71,13 +85,13 @@ plot(ews_univariado_china_3)
 #CON LOS DATOS INTENTO INTERPOLADOS:
 #estimacion de los valores desconocidos, basados en otros.
 
-ews_univariado_china_4<- uniEWS(data = faltante[ ,c(1,3)], #datos extrapolados
-                                metrics =  ews_metrics,
-                                method = "expanding",
-                                burn_in = 10,
-                                threshold = 2,
-                                tail.direction = "one.tailed")
-plot(ews_univariado_china_4) 
+#ews_univariado_china_4<- uniEWS(data = faltante[ ,c(1,3)], #datos extrapolados
+ #                               metrics =  ews_metrics,
+  #                              method = "expanding",
+   #                             burn_in = 10,
+    #                            threshold = 2,
+     #                           tail.direction = "one.tailed")
+#plot(ews_univariado_china_4) 
 
 ####################################################################################
 #intento multivariado :/
