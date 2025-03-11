@@ -32,7 +32,7 @@ ews_metrics
 
 
 ##
-head(df_covid_usa[rowSums(is.na(df_covid_usa)) == 0,]) ## para eliminar NA
+head(df_covid_usa[rowSums(is.na(df_covid_usa)) == 0,]) ## para eliminar reglones con NA
 
 ################################################################################
 names(df_covid_usa[-c(1:10),c(1,3)]) #para que solo este el tiempo
