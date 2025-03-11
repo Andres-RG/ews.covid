@@ -6,8 +6,9 @@ library(tidyr)
 library(tidyverse)
 library(dplyr)
 ##-----------------------------------------------
-# se cargan los datos de covid de todo el mundo
-# covid <- owid_covid()
+# se cargan los datos de covid de todo el mundo. Los datos se descargaron para 
+# no entrar al servidor
+covid <- read_csv("01_raw_data/owid-covid-data.csv")
 str(covid)
 # se filtran para los datos de Mexico. Depende del pais, el iso_code
 covid.mx <- covid %>% filter(iso_code=="MEX")
