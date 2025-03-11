@@ -30,6 +30,10 @@ names(df_covid_usa)
 ##VECTOR CON LAS METRICAS:
 ews_metrics
 
+
+##
+head(df_covid_usa[rowSums(is.na(df_covid_usa)) == 0,]) ## para eliminar NA
+
 ################################################################################
 names(df_covid_usa[-c(1:10),c(1,3)]) #para que solo este el tiempo
 #y los nuevos casos. Lo necesario para realizar el analisis.
