@@ -1,9 +1,8 @@
 ######PAISES CON MÁS PRUEBAS PT1.#####
 #DINAMARCA
 #ITALIA
-#COREA
 #INDIA
-#UK
+
 
 library(owidR)
 library(tidyr)
@@ -24,7 +23,7 @@ covid_datos <- read.csv("01_raw_data/owid-covid-data.csv")
 str(covid_datos)
 head(covid_datos)
 #FILTRADO:
-covid_usa <- covid_datos %>% filter(iso_code== "USA")
+covid_usa <- covid_datos %>% filter(iso_code== "USA") #volver a cargar los datos.
 
 df_covid_usa <- data.frame(
   time = seq(1, length(covid_usa$date), 1)     ,
@@ -32,18 +31,12 @@ df_covid_usa <- data.frame(
 )
 length(df_covid_usa$date)
 
-#df.covid.mx <- data.frame(
-#  time = seq(1, length(covid.mx$date), 1)     ,
- # covid.mx[ , 5:16]
-#)
-
 head(df_covid_usa)
 names(df_covid_usa)
 
 ##VECTOR CON LAS METRICAS:
 ews_metrics <- c("SD","ar1","skew")
 ews_metrics
-
 
 ##
 head(df_covid_usa[rowSums(is.na(df_covid_usa)) == 0,]) ## para eliminar reglones con NA
