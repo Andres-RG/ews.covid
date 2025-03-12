@@ -14,7 +14,7 @@ str(covid)
 #FILTRADO:
 covid_reino_unido <- covid %>%filter(iso_code== "GBR")
 #PARA GUARDAR LA BASE DE DATOS POR PAIS:
-#save(objeto, "nombre del archivo.RData")
+save(covid_reino_unido, file = "03_out/data/Covid Reino Unido.RData")
 
 #UNIVARIADAS:
 df_covid_reino_unido <- data.frame(
@@ -39,9 +39,10 @@ ews_univariado_ru <- uniEWS(data = df_covid_reino_unido[-c(1:10),c(1,3)],
                                threshold = 2, #VARIANZAS
                                tail.direction = "one.tailed") 
 plot(ews_univariado_ru) 
-# pdf("03_out/plots/ews_univariado_UK.nuevos.casos.pdf", height = 8, width = 10)
-# plot(ews_univariado_ru)
-# dev.off()
+#guardado:
+pdf("03_out/plots/ews_univariado_UK.nuevos.casos.pdf", height = 8, width = 10)
+plot(ews_univariado_ru)
+dev.off()
 
 ################################################################################
 names(df_covid_reino_unido[-c(1:10),c(1,4)]) 
@@ -56,9 +57,10 @@ ews_univariado_ru_2<- uniEWS(data = df_covid_reino_unido[-c(1:10),c(1,4)] ,
                                  tail.direction = "one.tailed")
 
 plot(ews_univariado_ru_2)
-# pdf("03_out/plots/ews_univariado_UK.nuevos.smoothed.pdf", height = 8, width = 10)
-# plot(ews_univariado_ru_2)
-# dev.off()
+
+ pdf("03_out/plots/ews_univariado_UK.nuevos.smoothed.pdf", height = 8, width = 10)
+ plot(ews_univariado_ru_2)
+ dev.off()
 
 ##################################################################################
 names(df_covid_reino_unido[-c(1:10),c(1,7)])
@@ -72,8 +74,9 @@ ews_univariado_ru_3<- uniEWS(data = df_covid_reino_unido[-c(1:10),c(1,7)] ,
                                 threshold = 2,
                                 tail.direction = "one.tailed")
 plot(ews_univariado_ru_3)
-# pdf("03_out/plots/ews_univariado_UK.nuevos.deaths.smoothed.pdf", height = 8, width = 10)
-# plot(ews_univariado_ru_3)
-# dev.off()
+
+ pdf("03_out/plots/ews_univariado_UK.nuevos.deaths.smoothed.pdf", height = 8, width = 10)
+ plot(ews_univariado_ru_3)
+ dev.off()
 
 ##################################################################################
