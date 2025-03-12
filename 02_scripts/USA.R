@@ -26,7 +26,7 @@ str(covid)
 head(covid)
 #FILTRADO:
 covid_usa <- covid %>% filter(iso_code== "USA") #volver a cargar los datos.
-
+save(covid_usa, file =  "03_out/data/Covid USA.RData")
 
 df_covid_usa <- data.frame(
   time = seq(1, length(covid_usa$date), 1)     ,
@@ -67,6 +67,9 @@ ews_univariado_usa <- uniEWS(data = df_covid_usa[-c(1:10),c(1,3)],
                                tail.direction = "one.tailed") 
 plot(ews_univariado_usa) 
 
+pdf("03_out/plots/ews_univariado_usa.nuevos.casos.pdf", height = 8, width = 10)
+plot(ews_univariado_usa)
+dev.off()
 ####################################################################################
 
 names(df_covid_usa[-c(1:10),c(1,4)])
@@ -81,6 +84,10 @@ ews_univariado_usa_2<- uniEWS(data = df_covid_usa[-c(1:10),c(1,4)] ,
                                 tail.direction = "one.tailed")
 plot(ews_univariado_usa_2)
 
+pdf("03_out/plots/ews_univariado_usa.nuevos.casos.suavizado.pdf", height = 8, width = 10)
+plot(ews_univariado_usa_2)
+dev.off()
+
 ################################################################################
 names(df_covid_usa[-c(1:10),c(1,7)])
 #tiempo
@@ -93,3 +100,7 @@ ews_univariado_usa_3<- uniEWS(data = df_covid_usa[-c(1:10),c(1,7)] ,
                                 threshold = 2,
                                 tail.direction = "one.tailed")
 plot(ews_univariado_usa_3)
+
+pdf("03_out/plots/ews_univariado_usa.new.deaths.smoothed.pdf", height = 8, width = 10)
+plot(ews_univariado_usa_3)
+dev.off()
