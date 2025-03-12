@@ -8,6 +8,7 @@ library(dplyr)
 # se cargan los datos
 covid.mx.ss <- read.csv("01_raw_data/COVID19MEXICO.csv") # covid mexico secretaria de salud
 str(covid.mx.ss)
+
 ##-----------------------------------------------
 # FILTRADO por estados
 covid.mx.cdmx <- covid.mx.ss %>%
