@@ -14,7 +14,7 @@ str(covid)
 #FILTRADO:
 covid_china <- covid %>%filter(iso_code=="CHN")
 #PARA GUARDAR LA BASE DE DATOS POR PAIS:
-#save(objeto, "nombre del archivo.RData")
+save(covid_china, file =  "03_out/data/Covid China.RData")
 
 #UNIVARIADAS:
 df_covid_china <- data.frame(
@@ -32,7 +32,7 @@ names(df_covid_china)
 #vector con las metricas:
 ews_metrics <- c("SD","ar1","skew") 
 
-###########
+################################################################################
 names(df_covid_china[-c(1:10),c(1,3)]) #para que solo este el tiempo
 #y los nuevos casos. Lo necesario para realizar el analisis.
 #tiempo
@@ -44,10 +44,12 @@ ews_univariado_china <- uniEWS(data = df_covid_china[-c(1:10),c(1,3)],
       burn_in = 10, #DE PREFERENCIA CON ESTOS DATOS.
       threshold = 2, #VARIANZAS
       tail.direction = "one.tailed") 
+
 plot(ews_univariado_china) 
-# pdf("03_out/plots/ews_univariado_china.nuevos.casos.pdf", height = 8, width = 10)
-# plot(ews_univariado_china)
-# dev.off()
+
+ pdf("03_out/plots/ews_univariado_china.nuevos.casos.pdf", height = 8, width = 10)
+ plot(ews_univariado_china)
+ dev.off()
 
 ################################################################################
 names(df_covid_china[-c(1:10),c(1,4)])
@@ -61,9 +63,10 @@ ews_univariado_china_2<- uniEWS(data = df_covid_china[-c(1:10),c(1,4)] ,
                            threshold = 2,
                            tail.direction = "one.tailed")
 plot(ews_univariado_china_2)
-# pdf("03_out/plots/ews_univariado_china.nuevos.suavizado.pdf", height = 8, width = 10)
-# plot(ews_univariado_china_2)
-# dev.off()
+
+ pdf("03_out/plots/ews_univariado_china.nuevos.suavizado.pdf", height = 8, width = 10)
+ plot(ews_univariado_china_2)
+ dev.off()
 
 ################################################################################
 names(df_covid_china[-c(1:10),c(1,7)])
@@ -87,6 +90,9 @@ ews_univariado_china_3<- uniEWS(data = df_covid_china [-c(1:10),c(1,7)] ,
                        tail.direction = "one.tailed")
 plot(ews_univariado_china_3)
 
+pdf("03_out/plots/ews_univariado_china.muertes.suavizado.pdf", height = 8, width = 10)
+plot(ews_univariado_china_3)
+dev.off()
 
 ####################################################################################
 #intento multivariado 
