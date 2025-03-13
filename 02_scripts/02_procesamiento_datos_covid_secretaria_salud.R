@@ -15,6 +15,8 @@ covid.mx.ss.2020 <- read.csv("01_raw_data/COVID19MEXICO2020.csv")
 str(covid.mx.ss.2020)
 
 #2021
+covid.mx.ss.2021 <- read.csv("01_raw_data/COVID19MEXICO2021.csv")
+str(covid.mx.ss.2021)
 
 #2022
 
