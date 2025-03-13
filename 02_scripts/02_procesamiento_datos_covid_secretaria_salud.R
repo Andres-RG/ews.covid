@@ -27,7 +27,7 @@ save(covid.mx.ss.2022, file = "03_out/data/covid.mx.ss.2022.RData")
 
 #2023
 covid.mx.ss.2023 <- read.csv("01_raw_data/COVID19MEXICO23.csv")
-save(covid.mx.ss.2023, file = "03_out/data/covid.mx.ss.2022.RData")
+save(covid.mx.ss.2023, file = "03_out/data/covid.mx.ss.2023.RData")
 
 
 ##-----------------------------------------------
