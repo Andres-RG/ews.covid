@@ -8,9 +8,8 @@ library(dplyr)
 ##-----------------------------------------------
 # se cargan los datos de covid de todo el mundo. Los datos se descargaron para 
 # no entrar al servidor
-  #save(covid, file =  "covid_mundial.RData")
-load("01_raw_data/covid_mundial.RData")
-
+covid <- owid_covid()
+covid <- read.csv("01_raw_data/owid-covid-data.csv")
 str(covid)
 # se filtran para los datos de Mexico. Depende del pais, el iso_code
 covid.mx <- covid %>% filter(iso_code=="MEX")
