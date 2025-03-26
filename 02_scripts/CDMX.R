@@ -216,5 +216,55 @@ ews_cdmx_2022 <- uniEWS(data = data_covid_ews_cdmx2022,
                         tail.direction = "one.tailed")
 plot(ews_cdmx_2022)
   # pdf("03_out/plots/ews_cdmx_2022.univariado.pdf", height = 8, width = 10)
-  # plot(ews_cdmx_2023)
+  # plot(ews_cdmx_2022)
   # dev.off()
+
+##################################################################################
+#2021
+load("03_out/data/covid.mx.cdmx.2021.RData")
+  #covid.mx.cdmx.2021$CLASIFICACION_FINAL
+casos_positivos_2021 <- filter(covid.mx.cdmx.2021, CLASIFICACION_FINAL  == 1 |
+                                    CLASIFICACION_FINAL== 2 |
+                                    CLASIFICACION_FINAL== 3 )
+
+# Casos por dia. Incidencia =================================================
+pos_2021 <- c() # crea un vector vacio
+
+for (i in 1:length(casos_positivos_2021$FECHA_SINTOMAS) ) {
+  pos_2021 <- c(pos_2021, 1) }
+# coloca un 1 en el vector para cada uno de los  positivos.
+
+
+casos_positivos_re_2021 <- mutate(casos_positivos_2021, positivos = pos_2021) 
+
+# Obtener la suma de los positivos por dia.
+# TOTAL.
+casos_positivos_re_2021 <- aggregate(positivos~FECHA_SINTOMAS, 
+                                         data = casos_positivos_re_2021,
+                                         FUN = sum)
+
+# Genera otra columna en el objeto para agregar el numero de dia
+casos_positivos_re_2021 [,3] <- c(1:length(casos_positivos_re_2021$FECHA_SINTOMAS))
+colnames(casos_positivos_re_2021)[3] <- "num.dia" 
+casos_positivos_re_2021
+
+##------------------------------------------
+#data frame: ews 2021
+data_covid_ews_cdmx2021 <- data.frame(
+  time = seq(1, length(casos_positivos_re_2021$FECHA_SINTOMAS), 1) ,
+  casos = casos_positivos_re_2021$positivos
+)
+##------------------------------------------
+# ews univariados: cdmx 2021
+  #ews_metrics <- c("SD","ar1","skew")
+
+ews_cdmx_2021 <- uniEWS(data = data_covid_ews_cdmx2021,
+                        metrics =  ews_metrics,
+                        method = "expanding", 
+                        burn_in = 10, 
+                        threshold = 2,
+                        tail.direction = "one.tailed")
+plot(ews_cdmx_2021)
+# pdf("03_out/plots/ews_cdmx_2021.univariado.pdf", height = 8, width = 10)
+# plot(ews_cdmx_2021)
+# dev.off()
