@@ -35,7 +35,8 @@ covid.mx.ss.2023 <- read.csv("01_raw_data/COVID19MEXICO23.csv")
 
 
 ##-----------------------------------------------
-# FILTRADO por estados: 2024-5
+# FILTRADO por estados CDMX
+#2024-5
 covid.mx.cdmx <- covid.mx.ss %>%
   filter(ENTIDAD_UM == 09)
 # save(covid.mx.cdmx, file = "03_out/data/covid.mx.cdmx.RData")
@@ -86,3 +87,29 @@ covid.mx.vz.2021 <- covid.mx.ss.2021 %>% filter(ENTIDAD_UM == 30)
 covid.mx.vz.2020 <- covid.mx.ss.2020 %>%
   filter(ENTIDAD_UM == 30)  
   #save(covid.mx.vz.2020, file = "03_out/data/covid.mx.vz.2020.RData")
+
+################################################################################
+#JALISCO.
+#2024-5
+#jc---jalisco 14
+#mantienen la clasificacion final flu!!!!
+covid.mx.jc.2024 <- covid.mx.ss %>% #2024-5
+  filter(ENTIDAD_UM == 14)
+  #save(covid.mx.jc.2024, file = "03_out/data/covid.mx.jc.2024.RData")
+
+#2023
+covid.mx.jc.2023 <- covid.mx.ss %>% filter(ENTIDAD_UM == 14)
+  #save(covid.mx.jc.2023, file ="03_out/data/covid.mx.jc.2023.RData")
+  
+#2022
+covid.mx.jc.2022 <- covid.mx.ss %>% filter(ENTIDAD_UM == 14)
+  #save(covid.mx.jc.2022, file ="03_out/data/covid.mx.jc.2022.RData")
+  
+#2021
+covid.mx.jc.2021 <- covid.mx.ss %>% filter(ENTIDAD_UM == 14)
+  #save(covid.mx.jc.2021, file ="03_out/data/covid.mx.jc.2021.RData")
+
+#2020
+covid.mx.jc.2020 <- covid.mx.ss %>% filter(ENTIDAD_UM == 14)
+  #save(covid.mx.jc.2020, file ="03_out/data/covid.mx.jc.2020.RData")
+  
