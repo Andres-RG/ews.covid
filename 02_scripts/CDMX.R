@@ -76,33 +76,33 @@ casos_positivos_re.2020 <- filter(covid.mx.cdmx.2020, CLASIFICACION_FINAL  == 1 
 
 pos_2020 <- c() # crea un vector vacio
 
-for (i in 1:length(casos_positivos_re.2020 $FECHA_SINTOMAS) ) {
+for (i in 1:length(casos_positivos_re.2020$FECHA_SINTOMAS) ) {
   pos_2020 <- c(pos_2020, 1) } # por cada uno de los positivos, 
-# coloca un 1 en el vector-
+# coloca un 1 en el vector
 
-casos_positivos_re.2020 <- mutate(casos_positivos_re.2020, positivos = pos_2020) 
+casos_positivos_2020 <- mutate(casos_positivos_re.2020, positivos = pos_2020) 
 
 # Suma todos los positivos de un solo dia por fecha de inicio de sintomas
-casos_positivos_re.2020 <- aggregate(positivos~FECHA_SINTOMAS, 
-                                       data = casos_positivos_re.2020,
+casos_positivos_2020 <- aggregate(positivos~FECHA_SINTOMAS, 
+                                       data = casos_positivos_2020,
                                        FUN = sum)
 
 # Genera otra columna en el objeto para agregar el numero de dia
-casos_positivos_re.2020 [,3] <- c(1:length(casos_positivos_re.2020$FECHA_SINTOMAS))
-colnames(casos_positivos_re.2020)[3] <- "num.dia" 
-casos_positivos_re.2020
+casos_positivos_2020 [,3] <- c(1:length(casos_positivos_2020$FECHA_SINTOMAS))
+colnames(casos_positivos_2020)[3] <- "num.dia" 
+casos_positivos_2020
 
 ##------------------------------------------
 #data frame: ews 2020
 data_covid_ews_cdmx2020 <- data.frame(
-  time = seq(1, length(casos_positivos_re.2020$FECHA_SINTOMAS), 1) ,
-  casos = casos_positivos_re.2020$positivos
+  time = seq(1, length(casos_positivos_2020$FECHA_SINTOMAS), 1) ,
+  casos = casos_positivos_2020$positivos
 )
 ##------------------------------------------
 # ews univariados: cdmx 2020
 ews_metrics <- c("SD","ar1","skew")
 
-ews_cdmx_2020 <- uniEWS(data = data_covid_ews_cdmx2025,
+ews_cdmx_2020 <- uniEWS(data = data_covid_ews_cdmx2020,
                         metrics =  ews_metrics,
                         method = "expanding", 
                         burn_in = 10, 

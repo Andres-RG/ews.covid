@@ -17,10 +17,13 @@ str(covid.mx.ss.2020)
   #load("03_out/data/covid.mx.ss.2020.RData")
 
 #2021
-covid.mx.ss.2021 <- read.csv("01_raw_data/COVID19MEXICO2021.csv")
-  #str(covid.mx.ss.2021)
-  #save(covid.mx.ss.2021, file = "03_out/data/covid.mx.ss.2021.RData")
-
+#se carga de manera manual.
+#descargar datos de: https://www.gob.mx/cms/uploads/attachment/file/753707/Cierre_Datos_abiertos_historicos_2021.pdf
+  #COVID19MEXICO2021
+  #str(COVID19MEXICO2021)
+    #save(COVID19MEXICO2021, file = "03_out/data/COVID19MEXICO2021.RData")
+covid.mx.ss.2021 <- COVID19MEXICO2021
+  str(covid.mx.ss.2021)
 
 #2022
 covid.mx.ss.2022 <- read.csv("01_raw_data/COVID19MEXICO2022.csv")
@@ -40,6 +43,10 @@ covid.mx.cdmx <- covid.mx.ss %>%
 #filtrado por estados 2020: cdmx.
 covid.mx.cdmx.2020 <- covid.mx.ss.2020 %>% filter(ENTIDAD_UM == 09)
   #save(covid.mx.cdmx.2020, file = "03_out/data/covid.mx.cdmx.2020.RData")
+
+#filtrado 2021.
+covid.mx.cdmx.2021 <- covid.mx.ss.2021 %>% filter(ENTIDAD_UM == 09)
+  #save(covid.mx.cdmx.2021, file = "03_out/data/covid.mx.cdmx.2021.RData")
   
 ##filtrado por estados 2023: cdmx.
 covid.mx.cdmx.2023 <- covid.mx.ss.2023 %>% filter(ENTIDAD_UM == 09)
@@ -70,6 +77,10 @@ covid.mx.vz.2022 <- covid.mx.ss.2022 %>%
   filter(ENTIDAD_UM == 30)  
   #save(covid.mx.vz.2022, file = "03_out/data/covid.mx.vz.2022.RData")
   
+#filtrado 2021.
+covid.mx.vz.2021 <- covid.mx.ss.2021 %>% filter(ENTIDAD_UM == 30)
+  #save(covid.mx.vz.2021, file = "03_out/data/covid.mx.vz.2021.RData")
+
 #2020
   #load("03_out/data/covid.mx.ss.2020.RData")
 covid.mx.vz.2020 <- covid.mx.ss.2020 %>%
