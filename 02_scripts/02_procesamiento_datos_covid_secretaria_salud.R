@@ -98,18 +98,42 @@ covid.mx.jc.2024 <- covid.mx.ss %>% #2024-5
   #save(covid.mx.jc.2024, file = "03_out/data/covid.mx.jc.2024.RData")
 
 #2023
-covid.mx.jc.2023 <- covid.mx.ss %>% filter(ENTIDAD_UM == 14)
+covid.mx.jc.2023 <- covid.mx.ss.2023 %>% filter(ENTIDAD_UM == 14)
   #save(covid.mx.jc.2023, file ="03_out/data/covid.mx.jc.2023.RData")
   
 #2022
-covid.mx.jc.2022 <- covid.mx.ss %>% filter(ENTIDAD_UM == 14)
+covid.mx.jc.2022 <- covid.mx.ss.2022 %>% filter(ENTIDAD_UM == 14)
   #save(covid.mx.jc.2022, file ="03_out/data/covid.mx.jc.2022.RData")
   
 #2021
-covid.mx.jc.2021 <- covid.mx.ss %>% filter(ENTIDAD_UM == 14)
+covid.mx.jc.2021 <- covid.mx.ss.2021 %>% filter(ENTIDAD_UM == 14)
   #save(covid.mx.jc.2021, file ="03_out/data/covid.mx.jc.2021.RData")
 
 #2020
-covid.mx.jc.2020 <- covid.mx.ss %>% filter(ENTIDAD_UM == 14)
+covid.mx.jc.2020 <- covid.mx.ss.2020 %>% filter(ENTIDAD_UM == 14)
   #save(covid.mx.jc.2020, file ="03_out/data/covid.mx.jc.2020.RData")
+
+################################################################################
+#QUERETARO
+#2024-5
+#qt--queretaro-22
+covid.mx.qt.2024 <- covid.mx.ss %>% filter(ENTIDAD_UM == 22)
+  #save(covid.mx.qt.2024, file = "03_out/data/covid.mx.qt.2024.RData")  
+
+#2023
+covid.mx.qt.2023 <- covid.mx.ss.2023 %>% filter(ENTIDAD_UM == 22)
+  #save(covid.mx.qt.2023, file ="03_out/data/covid.mx.qt.2023.RData")
+
+#2022
+covid.mx.qt.2022 <- covid.mx.ss.2022 %>% filter(ENTIDAD_UM == 22)
+  #save(covid.mx.qt.2022, file = "03_out/data/covid.mx.qt.2022.RData")
   
+#2021
+covid.mx.qt.2021 <- covid.mx.ss.2021 %>% filter(ENTIDAD_UM == 22)
+  #save(covid.mx.qt.2021, file = "03_out/data/covid.mx.qt.2021.RData")
+
+#2020
+covid.mx.qt.2020 <- covid.mx.ss.2020 %>% filter(ENTIDAD_UM == 22)
+  #save(covid.mx.qt.2020, file = "03_out/data/covid.mx.qt.2020.RData")
+
+#################################################################################
