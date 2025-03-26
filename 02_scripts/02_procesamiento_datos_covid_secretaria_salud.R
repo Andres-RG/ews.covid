@@ -31,7 +31,7 @@ save(covid.mx.ss.2023, file = "03_out/data/covid.mx.ss.2023.RData")
 
 
 ##-----------------------------------------------
-# FILTRADO por estados
+# FILTRADO por estados: 2024-5
 covid.mx.cdmx <- covid.mx.ss %>%
   filter(ENTIDAD_UM == 09)
 # save(covid.mx.cdmx, file = "03_out/data/covid.mx.cdmx.RData")
@@ -39,3 +39,8 @@ covid.mx.cdmx <- covid.mx.ss %>%
 #filtrado por estados 2020: cdmx.
 covid.mx.cdmx.2020 <- covid.mx.ss.2020 %>% filter(ENTIDAD_UM == 09)
   #save(covid.mx.cdmx.2020. file = "03_out/data/covid.mx.cdmx.2020.RData")
+
+##filtrado por estados 2023: cdmx.
+covid.mx.cdmx.2023 <- covid.mx.ss.2023 %>% filter(ENTIDAD_UM == 09)
+  save(covid.mx.cdmx.2023, file = "03_out/data/covid.mx.cdmx.2023.RData")
+  
