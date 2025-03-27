@@ -86,6 +86,17 @@ ews_as_2021 <- uniEWS(data = covid_ews_as_2021,
                       threshold = 2,
                       tail.direction = "one.tailed")
 plot(ews_as_2021)
+
+#intneto graficas ggplot.
+source("04_functions/dataunvariateews.R")
+source("04_functions/plotewsunivariateggplot.R")
+data.uni.ews(ews_as_2021) ->ews_data_jalisco_2021 #extraer los datos/funcion.
+plot.univariate.ews.ggplot(ews_data_jalisco_2021)-> jalisco_ews_plot_2021
+
+#OBJETO GGPLOT: 
+jalisco_ews_plot_2021 
+
+
 ################################################################################
 #2022
 load("03_out/data/covid.mx.as.2022.RData")
@@ -130,6 +141,7 @@ ews_as_2022 <- uniEWS(data = covid_ews_as_2022,
                       tail.direction = "one.tailed")
 plot(ews_as_2022)
 
+
 ################################################################################
 #2023
 load("03_out/data/covid.mx.as.2023.RData")
@@ -150,7 +162,29 @@ aguascalientes_positivos_conteo_2023 <- aggregate(positivos~FECHA_SINTOMAS,
                                                   data = aguascalientes_positivos_conteo_2023,
                                                   FUN = sum)
 
+aguascalientes_positivos_conteo_2023[,3] <- c(1:length(
+  aguascalientes_positivos_conteo_2023$FECHA_SINTOMAS))
 
+colnames(aguascalientes_positivos_conteo_2023)[3] <- "num.dia" 
+
+aguascalientes_positivos_conteo_2023
+
+#data frame ews: 2020 
+covid_ews_as_2023 <- data.frame(
+  time = seq(1, length(aguascalientes_positivos_conteo_2023$FECHA_SINTOMAS), 1) ,
+  casos = aguascalientes_positivos_conteo_2023$positivos
+)
+
+#ews_metrics <- c("SD","ar1","skew")
+
+ews_as_2023 <- uniEWS(data = covid_ews_as_2023,
+                      metrics =  ews_metrics,
+                      method = "expanding", 
+                      burn_in = 10, 
+                      threshold = 2,
+                      tail.direction = "one.tailed")
+plot(ews_as_2023)
+#detectan cuando la curva baja.
 ################################################################################
 #2024-5
 load("03_out/data/covid.mx.as.2024.RData")
@@ -170,3 +204,26 @@ aguascalientes_positivos_conteo_2024 <- mutate(positivo_aguascalientes_2024,
 aguascalientes_positivos_conteo_2024 <- aggregate(positivos~FECHA_SINTOMAS, 
                                                   data = aguascalientes_positivos_conteo_2024,
                                                   FUN = sum)
+
+aguascalientes_positivos_conteo_2024[,3] <- c(1:length(
+  aguascalientes_positivos_conteo_2024$FECHA_SINTOMAS))
+
+colnames(aguascalientes_positivos_conteo_2024)[3] <- "num.dia" 
+
+aguascalientes_positivos_conteo_2024
+
+#data frame ews: 2020 
+covid_ews_as_2024 <- data.frame(
+  time = seq(1, length(aguascalientes_positivos_conteo_2024$FECHA_SINTOMAS), 1) ,
+  casos = aguascalientes_positivos_conteo_2024$positivos
+)
+
+#ews_metrics <- c("SD","ar1","skew")
+
+ews_as_2024 <- uniEWS(data = covid_ews_as_2024,
+                      metrics =  ews_metrics,
+                      method = "expanding", 
+                      burn_in = 10, 
+                      threshold = 2,
+                      tail.direction = "one.tailed")
+plot(ews_as_2024)
