@@ -1,3 +1,5 @@
+source("04_functions/dataunvariateews.R")
+source("04_functions/plotewsunivariateggplot.R")
 ###JALISCO###
 #codigo: jc
 #2020
@@ -219,3 +221,9 @@ plot(ews_jc_2024)
   #pdf("03_out/plots/ews_jc_2024.univariado.pdf", height = 8, width = 10)
   #plot(ews_jc_2024)
   #dev.off()
+data.uni.ews(ews_jc_2024) ->ews_jalisco24 #extraer los datos/funcion.
+plot.univariate.ews.ggplot(ews_jalisco24)-> jalisco_plot_24
+
+#OBJETO GGPLOT: 
+jalisco_plot_24 +labs(title = "jalisco 2024",
+                      subtitle = "No detecta ews")
