@@ -58,10 +58,9 @@ ews_cdmx_2025 <- uniEWS(data = data_covid_ews_cdmx2025,
                               threshold = 2,
                               tail.direction = "one.tailed")
 plot(ews_cdmx_2025)
-# pdf("03_out/plots/ews_cdmx_2025.univariado.pdf", height = 8, width = 10)
-# plot(ews_cdmx_2025)
-# dev.off()
-
+  #pdf("03_out/plots/ews_cdmx_2025.univariado.pdf", height = 8, width = 10)
+  #plot(ews_cdmx_2025)
+  #dev.off()
 
 ########################################################################################
 #2020
@@ -109,11 +108,9 @@ ews_cdmx_2020 <- uniEWS(data = data_covid_ews_cdmx2020,
                         threshold = 2,
                         tail.direction = "one.tailed")
 plot(ews_cdmx_2020)
-  # pdf("03_out/plots/ews_cdmx_2025.univariado.pdf", height = 8, width = 10)
-  # plot(ews_cdmx_2025)
-  # dev.off()
-
-
+  #pdf("03_out/plots/ews_cdmx_2020.univariado.pdf", height = 8, width = 10)
+  #plot(ews_cdmx_2020)
+  #dev.off()
 
 ##########################################################################################
 #2023
@@ -163,9 +160,9 @@ ews_cdmx_2023 <- uniEWS(data = data_covid_ews_cdmx2023,
                         threshold = 2,
                         tail.direction = "one.tailed")
 plot(ews_cdmx_2023)
-  #pdf("03_out/plots/ews_cdmx_2023.univariado.pdf", height = 8, width = 10)
-  #plot(ews_cdmx_2023)
-  #dev.off()
+#  pdf("03_out/plots/ews_cdmx_2023.univariado.pdf", height = 8, width = 10)
+# plot(ews_cdmx_2023)
+#  dev.off()
 
 ##################################################################################
 #2022
@@ -215,9 +212,9 @@ ews_cdmx_2022 <- uniEWS(data = data_covid_ews_cdmx2022,
                         threshold = 2,
                         tail.direction = "one.tailed")
 plot(ews_cdmx_2022)
-  # pdf("03_out/plots/ews_cdmx_2022.univariado.pdf", height = 8, width = 10)
-  # plot(ews_cdmx_2022)
-  # dev.off()
+  #pdf("03_out/plots/ews_cdmx_2022.univariado.pdf", height = 8, width = 10)
+  #plot(ews_cdmx_2022)
+  #dev.off()
 
 ##################################################################################
 #2021
@@ -265,6 +262,6 @@ ews_cdmx_2021 <- uniEWS(data = data_covid_ews_cdmx2021,
                         threshold = 2,
                         tail.direction = "one.tailed")
 plot(ews_cdmx_2021)
-# pdf("03_out/plots/ews_cdmx_2021.univariado.pdf", height = 8, width = 10)
-# plot(ews_cdmx_2021)
-# dev.off()
+  #pdf("03_out/plots/ews_cdmx_2021.univariado.pdf", height = 8, width = 10)
+  #plot(ews_cdmx_2021)
+  #dev.off()
