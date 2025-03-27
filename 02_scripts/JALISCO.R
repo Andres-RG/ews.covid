@@ -91,14 +91,22 @@ plot(ews_jc_2021)
 #2022
 load("03_out/data/covid.mx.jc.2022.RData")
   #covid.mx.jc.2022$CLASIFICACION_FINAL
-
+jalisco_positivos_2022 <- filter(covid.mx.jc.2022, CLASIFICACION_FINAL == 1 |
+                                   CLASIFICACION_FINAL == 2 |
+                                   CLASIFICACION_FINAL == 3 )
 
 ################################################################################
 #2023
 load("03_out/data/covid.mx.jc.2023.RData")
   #covid.mx.jc.2023$CLASIFICACION_FINAL
-  
+
+jalisco_positivos_2023 <- filter(covid.mx.jc.2023, CLASIFICACION_FINAL == 1 |
+                                   CLASIFICACION_FINAL == 2 |
+                                   CLASIFICACION_FINAL == 3 )
 ################################################################################
 #2024-5
 load("03_out/data/covid.mx.jc.2024.RData")
   #covid.mx.jc.2024$CLASIFICACION_FINAL_COVID
+jalisco_positivos_2024 <- filter(covid.mx.jc.2024, CLASIFICACION_FINAL_COVID == 1 |
+                                   CLASIFICACION_FINAL_COVID == 2 |
+                                   CLASIFICACION_FINAL_COVID == 3 )
