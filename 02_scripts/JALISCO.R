@@ -95,6 +95,18 @@ jalisco_positivos_2022 <- filter(covid.mx.jc.2022, CLASIFICACION_FINAL == 1 |
                                    CLASIFICACION_FINAL == 2 |
                                    CLASIFICACION_FINAL == 3 )
 
+jc_2022 <-c()
+for (i in 1:length(jalisco_positivos_2022$FECHA_SINTOMAS) ) {
+  jc_2022 <- c(jc_2022, 1) } # por cada uno de los positivos, 
+# coloca un 1 en el vector-
+
+jalisco_positivos_conteo_2022 <- mutate(jalisco_positivos_2022, positivos = jc_2022)
+
+# Suma todos los positivos de un solo dia por fecha de inicio de sintomas
+jalisco_positivos_conteo_2022 <- aggregate(positivos~FECHA_SINTOMAS, 
+                                           data = jalisco_positivos_conteo_2022,
+                                           FUN = sum)
+
 ################################################################################
 #2023
 load("03_out/data/covid.mx.jc.2023.RData")
@@ -103,6 +115,19 @@ load("03_out/data/covid.mx.jc.2023.RData")
 jalisco_positivos_2023 <- filter(covid.mx.jc.2023, CLASIFICACION_FINAL == 1 |
                                    CLASIFICACION_FINAL == 2 |
                                    CLASIFICACION_FINAL == 3 )
+
+jc_2023 <-c()
+for (i in 1:length(jalisco_positivos_2023$FECHA_SINTOMAS) ) {
+  jc_2023 <- c(jc_2023, 1) } # por cada uno de los positivos, 
+# coloca un 1 en el vector-
+
+jalisco_positivos_conteo_2023 <- mutate(jalisco_positivos_2023, positivos = jc_2023) 
+
+# Suma todos los positivos de un solo dia por fecha de inicio de sintomas
+jalisco_positivos_conteo_2023 <- aggregate(positivos~FECHA_SINTOMAS, 
+                                           data = jalisco_positivos_conteo_2023,
+                                           FUN = sum)
+
 ################################################################################
 #2024-5
 load("03_out/data/covid.mx.jc.2024.RData")
@@ -110,3 +135,14 @@ load("03_out/data/covid.mx.jc.2024.RData")
 jalisco_positivos_2024 <- filter(covid.mx.jc.2024, CLASIFICACION_FINAL_COVID == 1 |
                                    CLASIFICACION_FINAL_COVID == 2 |
                                    CLASIFICACION_FINAL_COVID == 3 )
+jc_2024 <-c()
+for (i in 1:length(jalisco_positivos_2024$FECHA_SINTOMAS) ) {
+  jc_2024 <- c(jc_2024, 1) } # por cada uno de los positivos, 
+# coloca un 1 en el vector-
+
+jalisco_positivos_conteo_2024 <- mutate(jalisco_positivos_2024, positivos = jc_2024) 
+
+# Suma todos los positivos de un solo dia por fecha de inicio de sintomas
+jalisco_positivos_conteo_2024 <- aggregate(positivos~FECHA_SINTOMAS, 
+                                           data = jalisco_positivos_conteo_2024,
+                                           FUN = sum)
