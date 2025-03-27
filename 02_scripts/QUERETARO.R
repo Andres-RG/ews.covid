@@ -46,6 +46,9 @@ ews_qt_2020 <- uniEWS(data = data_ews_qt_2020,
   tail.direction = "one.tailed"
 )
 plot(ews_qt_2020)
+  #pdf("03_out/plots/ews_qt_2020.univariado.pdf", height = 8, width = 10)
+  #plot(ews_qt_2020)
+  #dev.off()
 
 #################################################################################
 ###2021:
@@ -84,6 +87,9 @@ ews_qt_2021 <- uniEWS(data = data_ews_qt_2021,
                       threshold = 2,
                       tail.direction = "one.tailed")
 plot(ews_qt_2021)
+  #pdf("03_out/plots/ews_qt_2021.univariado.pdf", height = 8, width = 10)
+  #plot(ews_qt_2021)
+  #dev.off()
 
 ########################################################################################
 ###2022
@@ -122,6 +128,9 @@ ews_qt_2022 <- uniEWS(data = data_ews_qt_2022,
                       threshold = 2,
                       tail.direction = "one.tailed")
 plot(ews_qt_2022)
+  #pdf("03_out/plots/ews_qt_2022.univariado.pdf", height = 8, width = 10)
+  #plot(ews_qt_2022)
+  #dev.off()
 
 ################################################################################
 #2023.
@@ -159,6 +168,9 @@ ews_qt_2023 <- uniEWS(data = data_ews_qt_2023,
                       threshold = 2,
                       tail.direction = "one.tailed")
 plot(ews_qt_2023)
+  #pdf("03_out/plots/ews_qt_2023.univariado.pdf", height = 8, width = 10)
+  #plot(ews_qt_2023)
+  #dev.off()
 
 ####################################################################################
 #2024-5.
@@ -196,3 +208,6 @@ ews_qt_2024 <- uniEWS(data = data_ews_qt_2024,
                       threshold = 2,
                       tail.direction = "one.tailed")
 plot(ews_qt_2024)
+  #pdf("03_out/plots/ews_qt_2024.univariado.pdf", height = 8, width = 10)
+  #plot(ews_qt_2024)
+  #dev.off()
