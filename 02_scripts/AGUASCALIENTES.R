@@ -87,7 +87,7 @@ ews_as_2021 <- uniEWS(data = covid_ews_as_2021,
                       tail.direction = "one.tailed")
 plot(ews_as_2021)
 
-#intneto graficas ggplot.
+#intento graficas ggplot.
 source("04_functions/dataunvariateews.R")
 source("04_functions/plotewsunivariateggplot.R")
 data.uni.ews(ews_as_2021) ->ews_data_jalisco_2021 #extraer los datos/funcion.
