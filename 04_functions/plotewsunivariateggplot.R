@@ -4,6 +4,7 @@
 plot.univariate.ews.ggplot <- function( datauniews ){
   # se llama la libreria
   require(ggplot2)
+  require(dplyr)
   #
   ggplot(data = datauniews,
          aes(x = time)) +
@@ -12,8 +13,8 @@ plot.univariate.ews.ggplot <- function( datauniews ){
                   col = "ar1",
                   linetype = "Undetected"),
               lwd = 0.6) +
-    geom_point(data = subset( datauniews,
-                              threshold.crossed.ar1 == 1),
+    geom_point(data = datauniews %>% 
+                 filter(threshold.crossed.ar1 == 1),
                aes(y = ar1,
                    shape = "Detected"),
                col = "#6886c4",
@@ -23,8 +24,8 @@ plot.univariate.ews.ggplot <- function( datauniews ){
                   col = "SD",
                   linetype = "Undetected"),
               lwd = 0.6) +
-    geom_point(data = subset( datauniews,
-                              threshold.crossed.SD == 1),
+    geom_point(data = datauniews %>% 
+                 filter(threshold.crossed.SD == 1),
                aes(y = SD,
                    shape = "Detected"),
                col = "#bfbd3d",
@@ -34,8 +35,8 @@ plot.univariate.ews.ggplot <- function( datauniews ){
                   col = "skew",
                   linetype = "Undetected"),
               lwd = 0.6) +
-    geom_point(data = subset( datauniews,
-                              threshold.crossed.skew == 1),
+    geom_point(data = datauniews %>% 
+                 filter(threshold.crossed.skew == 1),
                aes(y = skew,
                    shape = "Detected"),
                col = "#5d3099",
@@ -45,10 +46,10 @@ plot.univariate.ews.ggplot <- function( datauniews ){
                   col = "ar1.SD",
                   linetype = "Undetected"),
               lwd = 0.6) +
-    geom_point(data = subset( datauniews,
-                              threshold.crossed.ar1.SD == 1),
+    geom_point(data = datauniews %>% 
+                 filter(threshold.crossed.ar1.SD == 1),
                aes(y = ar1.SD,
-                   shape = "ar1.SD"),
+                   shape = "Detected"),
                col = "#69c756",
                size = 2) +
     # ar1 + skew
@@ -56,10 +57,10 @@ plot.univariate.ews.ggplot <- function( datauniews ){
                   col = "ar1.skew",
                   linetype = "Undetected"),
               lwd = 0.6) +
-    geom_point(data = subset( datauniews,
-                              threshold.crossed.ar1.skew == 1),
+    geom_point(data = datauniews %>% 
+                 filter(threshold.crossed.ar1.skew == 1),
                aes(y = ar1.skew,
-                   shape = "ar1.skew"),
+                   shape = "Detected"),
                col = "#e281fe",
                size = 2) +
     # SD + skew
@@ -67,10 +68,10 @@ plot.univariate.ews.ggplot <- function( datauniews ){
                   col = "SD.skew",
                   linetype = "Undetected"),
               lwd = 0.6) +
-    geom_point(data = subset( datauniews,
-                              threshold.crossed.SD.skew == 1),
+    geom_point(data = datauniews %>% 
+                 filter(threshold.crossed.SD.skew == 1),
                aes(y = SD.skew,
-                   shape = "SD.skew"),
+                   shape = "Detected"),
                col = "#6ca181",
                size = 2) + 
     # ar1 + SD + skew
@@ -78,10 +79,10 @@ plot.univariate.ews.ggplot <- function( datauniews ){
                   col = "ar1.SD.skew",
                   linetype = "Undetected"),
               lwd = 0.6) +
-    geom_point(data = subset( datauniews,
-                              threshold.crossed.ar1.SD.skew == 1),
+    geom_point(data = datauniews %>% 
+                 filter(threshold.crossed.ar1.SD.skew == 1),
                aes(y = ar1.SD.skew,
-                   shape = "ar1.SD.skew"),
+                   shape = "Detected"),
                col = "#76c3ef",
                size = 2) +
     ###
@@ -136,7 +137,7 @@ indicator strength",
       panel.grid.minor.y = element_blank(), # Elimina la cuadrícula menor del eje Y
       panel.grid.major.x = element_blank()) +
     #
-    geom_hline(yintercept = c(2, 0, -2), # Líneas punteadas en el eje Y
+    geom_hline(yintercept = c(2), # Líneas punteadas en el eje Y
                linetype = "dashed",
                color = "grey40",
                lwd = 0.7)
