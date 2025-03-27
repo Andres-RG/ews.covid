@@ -157,8 +157,31 @@ covid.mx.as.2021 <- covid.mx.ss.2021 %>% filter(ENTIDAD_UM == 01)
   #save(covid.mx.as.2021, file = "03_out/data/covid.mx.as.2021.RData")
 
 #2020
-covid.mx.as.2020 <- covid.mx.ss.2020 %>% filter(ENTIDAD_UM == 22)
+covid.mx.as.2020 <- covid.mx.ss.2020 %>% filter(ENTIDAD_UM == 01)
   save(covid.mx.as.2020, file = "03_out/data/covid.mx.as.2020.RData")
 
 ################################################################################
+#BAJA CALIFORNIA.
+#BC---02
   
+#2024
+covid.mx.bc.2024 <- covid.mx.ss %>% filter(ENTIDAD_UM == 02)
+  #save(covid.mx.bc.2024, file = "03_out/data/covid.mx.bc.2024.RData")  
+  
+#2023
+covid.mx.bc.2023 <- covid.mx.ss.2023 %>% filter(ENTIDAD_UM == 02)
+  #save(covid.mx.bc.2023, file ="03_out/data/covid.mx.bc.2023.RData")
+  
+#2022
+covid.mx.bc.2022 <- covid.mx.ss.2022 %>% filter(ENTIDAD_UM == 02)
+  #save(covid.mx.bc.2022, file = "03_out/data/covid.mx.bc.2022.RData")
+  
+#2021
+covid.mx.bc.2021 <- covid.mx.ss.2021 %>% filter(ENTIDAD_UM == 02)
+  #save(covid.mx.as.2021, file = "03_out/data/covid.mx.bc.2021.RData")
+  
+#2020
+covid.mx.bc.2020 <- covid.mx.ss.2020 %>% filter(ENTIDAD_UM == 02)
+  #save(covid.mx.bc.2020, file = "03_out/data/covid.mx.bc.2020.RData")
+
+################################################################################
