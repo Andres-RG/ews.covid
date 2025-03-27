@@ -1,4 +1,7 @@
 ###AGUASCALIENTES###
+source("04_functions/dataunvariateews.R")
+source("04_functions/plotewsunivariateggplot.R")
+
 #CODIGO: as
 
 #2020
@@ -42,6 +45,11 @@ ews_as_2020 <- uniEWS(data = covid_ews_as_2020,
                       tail.direction = "one.tailed")
 plot(ews_as_2020)
 
+data.uni.ews(ews_as_2020) ->ews_data_jalisco_2020 #extraer los datos/funcion.
+plot.univariate.ews.ggplot(ews_data_jalisco_2020)-> jalisco_ews_plot_2020
+
+#OBJETO GGPLOT: 
+jalisco_ews_plot_2020 +labs(title = "AGUASCALIENTES 2020")
 
 ################################################################################
 #2021
@@ -88,14 +96,11 @@ ews_as_2021 <- uniEWS(data = covid_ews_as_2021,
 plot(ews_as_2021)
 
 #intento graficas ggplot.
-source("04_functions/dataunvariateews.R")
-source("04_functions/plotewsunivariateggplot.R")
 data.uni.ews(ews_as_2021) ->ews_data_jalisco_2021 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_data_jalisco_2021)-> jalisco_ews_plot_2021
 
 #OBJETO GGPLOT: 
-jalisco_ews_plot_2021 
-
+jalisco_ews_plot_2021 +labs(title = "AGUASCALIENTES 2021")
 
 ################################################################################
 #2022
@@ -141,7 +146,11 @@ ews_as_2022 <- uniEWS(data = covid_ews_as_2022,
                       tail.direction = "one.tailed")
 plot(ews_as_2022)
 
+data.uni.ews(ews_as_2022) ->ews_data_jalisco_2022 #extraer los datos/funcion.
+plot.univariate.ews.ggplot(ews_data_jalisco_2022)-> jalisco_ews_plot_2022
 
+#OBJETO GGPLOT: 
+jalisco_ews_plot_2022 +labs(title = "AGUASCALIENTES 2022")
 ################################################################################
 #2023
 load("03_out/data/covid.mx.as.2023.RData")
@@ -185,6 +194,11 @@ ews_as_2023 <- uniEWS(data = covid_ews_as_2023,
                       tail.direction = "one.tailed")
 plot(ews_as_2023)
 #detectan cuando la curva baja.
+data.uni.ews(ews_as_2023) ->ews_data_jalisco_2023 #extraer los datos/funcion.
+plot.univariate.ews.ggplot(ews_data_jalisco_2023)-> jalisco_ews_plot_2023
+
+#OBJETO GGPLOT: 
+jalisco_ews_plot_2023 +labs(title = "AGUASCALIENTES 2023")
 ################################################################################
 #2024-5
 load("03_out/data/covid.mx.as.2024.RData")
@@ -227,3 +241,9 @@ ews_as_2024 <- uniEWS(data = covid_ews_as_2024,
                       threshold = 2,
                       tail.direction = "one.tailed")
 plot(ews_as_2024)
+
+data.uni.ews(ews_as_2024) ->ews_data_jalisco_2024 #extraer los datos/funcion.
+plot.univariate.ews.ggplot(ews_data_jalisco_2024)-> jalisco_ews_plot_2024
+
+#OBJETO GGPLOT: 
+jalisco_ews_plot_2024 +labs(title = "AGUASCALIENTES 2024")
