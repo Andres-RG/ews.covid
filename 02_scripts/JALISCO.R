@@ -107,6 +107,30 @@ jalisco_positivos_conteo_2022 <- aggregate(positivos~FECHA_SINTOMAS,
                                            data = jalisco_positivos_conteo_2022,
                                            FUN = sum)
 
+#anotacion del numero de día.
+jalisco_positivos_conteo_2022[,3] <- c(1:length(jalisco_positivos_conteo_2022$FECHA_SINTOMAS))
+colnames(jalisco_positivos_conteo_2022)[3] <- "num.dia" 
+jalisco_positivos_conteo_2022
+
+#data frame ews: 2022 JALISCO.
+data_covid_ews_jc_2022 <- data.frame(
+  time = seq(1, length(jalisco_positivos_conteo_2022$FECHA_SINTOMAS), 1) ,
+  casos = jalisco_positivos_conteo_2022$positivos
+)
+# ews univariados: 
+#ews_metrics <- c("SD","ar1","skew")
+
+ews_jc_2022 <- uniEWS(data = data_covid_ews_jc_2022,
+                      metrics =  ews_metrics,
+                      method = "expanding", 
+                      burn_in = 10, 
+                      threshold = 2,
+                      tail.direction = "one.tailed")
+plot(ews_jc_2022)
+  #pdf("03_out/plots/ews_jc_2022.univariado.pdf", height = 8, width = 10)
+  #plot(ews_jc_2022)
+  #dev.off()
+
 ################################################################################
 #2023
 load("03_out/data/covid.mx.jc.2023.RData")
@@ -128,6 +152,30 @@ jalisco_positivos_conteo_2023 <- aggregate(positivos~FECHA_SINTOMAS,
                                            data = jalisco_positivos_conteo_2023,
                                            FUN = sum)
 
+#anotacion del numero de día.
+jalisco_positivos_conteo_2023[,3] <- c(1:length(jalisco_positivos_conteo_2023$FECHA_SINTOMAS))
+colnames(jalisco_positivos_conteo_2023)[3] <- "num.dia" 
+jalisco_positivos_conteo_2023
+
+#data frame ews: 2023 JALISCO.
+data_covid_ews_jc_2023 <- data.frame(
+  time = seq(1, length(jalisco_positivos_conteo_2023$FECHA_SINTOMAS), 1) ,
+  casos = jalisco_positivos_conteo_2023$positivos
+)
+# ews univariados: 
+#ews_metrics <- c("SD","ar1","skew")
+
+ews_jc_2023 <- uniEWS(data = data_covid_ews_jc_2023,
+                      metrics =  ews_metrics,
+                      method = "expanding", 
+                      burn_in = 10, 
+                      threshold = 2,
+                      tail.direction = "one.tailed")
+plot(ews_jc_2023)
+  #pdf("03_out/plots/ews_jc_2023.univariado.pdf", height = 8, width = 10)
+  #plot(ews_jc_2023)
+  #dev.off()
+
 ################################################################################
 #2024-5
 load("03_out/data/covid.mx.jc.2024.RData")
@@ -146,3 +194,28 @@ jalisco_positivos_conteo_2024 <- mutate(jalisco_positivos_2024, positivos = jc_2
 jalisco_positivos_conteo_2024 <- aggregate(positivos~FECHA_SINTOMAS, 
                                            data = jalisco_positivos_conteo_2024,
                                            FUN = sum)
+#anotacion del numero de día.
+jalisco_positivos_conteo_2024[,3] <- c(1:length(jalisco_positivos_conteo_2024$FECHA_SINTOMAS))
+colnames(jalisco_positivos_conteo_2024)[3] <- "num.dia" 
+jalisco_positivos_conteo_2024
+
+#data frame ews: 2023 JALISCO.
+data_covid_ews_jc_2024 <- data.frame(
+  time = seq(1, length(jalisco_positivos_conteo_2024$FECHA_SINTOMAS), 1) ,
+  casos = jalisco_positivos_conteo_2024$positivos
+)
+
+# ews univariados: 
+#ews_metrics <- c("SD","ar1","skew")
+
+ews_jc_2024 <- uniEWS(data = data_covid_ews_jc_2024,
+                      metrics =  ews_metrics,
+                      method = "expanding", 
+                      burn_in = 10, 
+                      threshold = 2,
+                      tail.direction = "one.tailed")
+plot(ews_jc_2024)
+#NO SEÑALES DE ALERTA.
+  #pdf("03_out/plots/ews_jc_2024.univariado.pdf", height = 8, width = 10)
+  #plot(ews_jc_2024)
+  #dev.off()
