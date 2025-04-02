@@ -1,4 +1,5 @@
 ###QUERETARO###
+#comparar el tiempo con el pico más cercano.
 # Librerias ===================================================================
 library(tidyr)
 library(tidyverse)
@@ -6,6 +7,9 @@ library(EWSmethods)
 library(ggplot2)
 library(owidR)
 library(dplyr)
+
+source("04_functions/dataunvariateews.R")
+source("04_functions/plotewsunivariateggplot.R")
 
 ###############################################################################
 #2020.
@@ -37,7 +41,9 @@ data_ews_qt_2020 <- data.frame(
   time = seq(1, length(positivos_qt_re_2020$FECHA_SINTOMAS), 1) ,
   casos = positivos_qt_re_2020$positivos
 )
-#vector con las metricas univariadas: ews_metrics---ews_metrics <- c("SD","ar1","skew")
+#vector con las metricas univariadas: ews_metrics---
+ews_metrics <- c("SD","ar1","skew")
+
 ews_qt_2020 <- uniEWS(data = data_ews_qt_2020,
   metrics = ews_metrics,
   method = "expanding",
@@ -49,6 +55,13 @@ plot(ews_qt_2020)
   #pdf("03_out/plots/ews_qt_2020.univariado.pdf", height = 8, width = 10)
   #plot(ews_qt_2020)
   #dev.off()
+
+data.uni.ews(ews_qt_2020) ->ews_data_queretaro_2020 #extraer los datos/funcion.
+ews_data_queretaro_2020$time
+plot.univariate.ews.ggplot(ews_data_queretaro_2020)-> ews_data_queretaro_plot_2020
+
+#OBJETO GGPLOT: 
+ews_data_queretaro_plot_2020 +labs(title = "QUERETARO 2020")
 
 #################################################################################
 ###2021:
@@ -87,9 +100,17 @@ ews_qt_2021 <- uniEWS(data = data_ews_qt_2021,
                       threshold = 2,
                       tail.direction = "one.tailed")
 plot(ews_qt_2021)
+ews_qt_2021$threshold
   #pdf("03_out/plots/ews_qt_2021.univariado.pdf", height = 8, width = 10)
   #plot(ews_qt_2021)
   #dev.off()
+data.uni.ews(ews_qt_2021) ->ews_data_queretaro_2021 #extraer los datos/funcion.
+plot.univariate.ews.ggplot(ews_data_queretaro_2021)-> ews_data_queretaro_plot_2021
+
+#OBJETO GGPLOT: 
+ews_data_queretaro_plot_2021 +labs(title = "QUERETARO 2021")+
+  geom_hline(yintercept = c(2))
+  
 
 ########################################################################################
 ###2022
@@ -131,7 +152,12 @@ plot(ews_qt_2022)
   #pdf("03_out/plots/ews_qt_2022.univariado.pdf", height = 8, width = 10)
   #plot(ews_qt_2022)
   #dev.off()
+data.uni.ews(ews_qt_2022) ->ews_data_queretaro_2022 #extraer los datos/funcion.
+plot.univariate.ews.ggplot(ews_data_queretaro_2022)-> ews_data_queretaro_plot_2022
 
+#OBJETO GGPLOT: 
+ews_data_queretaro_plot_2022 +labs(title = "QUERETARO 2022")+
+  geom_hline(yintercept = c(2))
 ################################################################################
 #2023.
 load("03_out/data/covid.mx.qt.2023.RData")
@@ -171,7 +197,12 @@ plot(ews_qt_2023)
   #pdf("03_out/plots/ews_qt_2023.univariado.pdf", height = 8, width = 10)
   #plot(ews_qt_2023)
   #dev.off()
+data.uni.ews(ews_qt_2023) ->ews_data_queretaro_2023 #extraer los datos/funcion.
+plot.univariate.ews.ggplot(ews_data_queretaro_2023)-> ews_data_queretaro_plot_2023
 
+#OBJETO GGPLOT: 
+ews_data_queretaro_plot_2023 +labs(title = "QUERETARO 2023")+
+  geom_hline(yintercept = c(2))
 ####################################################################################
 #2024-5.
 load("03_out/data/covid.mx.qt.2024.RData")
@@ -211,3 +242,10 @@ plot(ews_qt_2024)
   #pdf("03_out/plots/ews_qt_2024.univariado.pdf", height = 8, width = 10)
   #plot(ews_qt_2024)
   #dev.off()
+
+data.uni.ews(ews_qt_2024) ->ews_data_queretaro_2024 #extraer los datos/funcion.
+plot.univariate.ews.ggplot(ews_data_queretaro_2024)-> ews_data_queretaro_plot_2024
+
+#OBJETO GGPLOT: 
+ews_data_queretaro_plot_2024 +labs(title = "QUERETARO 2023", subtitle = "aumento de caos")+
+  geom_hline(yintercept = c(2), col="red")

@@ -1,0 +1,59 @@
+---
+title: "OBSERVACIONES."
+author: "Dominguez Alondra."
+date: "2025-04-02"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyr)
+library(tidyverse)
+library(EWSmethods)
+library(ggplot2)
+library(owidR)
+library(dplyr)
+```
+
+## **Observaciones graficas Queretaro.**
+
+**2020**
+
+![![](images/clipboard-232387918.png){width="422"}](images/clipboard-350689426.png){width="418"}
+
+**2021**
+
+![](images/clipboard-4016020788.png){width="421"}
+
+![](images/clipboard-2257722427.png){width="428"}
+
+La curva de las metricas decae.
+
+**2022**
+
+![](images/clipboard-1258482069.png){width="416"}
+
+![](images/clipboard-4013925655.png){width="415"}
+
+**2023**
+
+![](images/clipboard-2901300063.png){width="418"}
+
+![](images/clipboard-2533780841.png){width="419"}
+
+Decaen los casos, no tan marcada la caida de los casos, pero significativa.
+
+**2024-5**
+
+![](images/clipboard-840002535.png){width="418"}
+
+![](images/clipboard-1994784362.png){width="424"}
+
+## OBSERVACIONES VERACRUZ.
+
+**2020**
+
+![](images/clipboard-1767318362.png){width="422"}
+
+![](images/clipboard-2192221444.png){width="428"}
+
+Grafica de 2023, en esta no se observa ninguna señal EWS; los picos que decresen no son tan "drasticos" a comparacion con los picos que decresen de otros estados.

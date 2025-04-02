@@ -108,7 +108,7 @@ plot(ews_vz_2021)
 
 ################################################################################
 #2023
-  #load("03_out/data/covid.mx.vz.2023.RData")
+  load("03_out/data/covid.mx.vz.2023.RData")
   #covid.mx.vz.2023$CLASIFICACION_FINAL
 casos_positivos_vz_2023 <- filter(covid.mx.vz.2023, CLASIFICACION_FINAL == 1 |
                                     CLASIFICACION_FINAL == 2 |
@@ -151,6 +151,12 @@ ews_vz_uni_2023 <- uniEWS(data = data_covid_ews_vz2023,
                       tail.direction = "one.tailed")
 plot(ews_vz_uni_2023)
 #esta es la grafica que no marca ninguna señal.
+data.uni.ews(ews_vz_uni_2023) ->ews_data_veracruz_2023 #extraer los datos/funcion.
+plot.univariate.ews.ggplot(ews_data_veracruz_2023)-> ews_data_veracruz_plot_2023
+
+#OBJETO GGPLOT: 
+ews_data_veracruz_plot_2023 +labs(title = "VERACRUZ 2023", 
+                                  subtitle = "NO marca ninguna señal")
 
  #pdf("03_out/plots/ews_vz_uni_2023.univariado.pdf", height = 8, width = 10)
  #plot(ews_vz_uni_2023)
