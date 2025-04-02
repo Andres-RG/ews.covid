@@ -259,7 +259,7 @@ covid.mx.cl.2020 <- covid.mx.ss.2020 %>% filter(ENTIDAD_UM == 05)
 #11	GUANAJUATO	GT
 #2024
 covid.mx.gt.2024 <- covid.mx.ss %>% filter(ENTIDAD_UM == 11)
-#save(covid.mx.gt.2024, file = "03_out/data/covid.mx.gt.2024.RData")  
+  #save(covid.mx.gt.2024, file = "03_out/data/covid.mx.gt.2024.RData")  
 
 #2023
 covid.mx.gt.2023 <- covid.mx.ss.2023 %>% filter(ENTIDAD_UM == 11)
@@ -267,7 +267,7 @@ covid.mx.gt.2023 <- covid.mx.ss.2023 %>% filter(ENTIDAD_UM == 11)
 
 #2022
 covid.mx.gt.2022 <- covid.mx.ss.2022 %>% filter(ENTIDAD_UM == 11)
-  #save(covid.mx.gt.2022, file = "03_out/data/covid.mx.gt.2023.RData")
+  #save(covid.mx.gt.2022, file = "03_out/data/covid.mx.gt.2022.RData")
 
 #2021  revisar base de datos
 covid.mx.gt.2021 <- covid.mx.ss.2021 %>% filter(ENTIDAD_UM == 11)

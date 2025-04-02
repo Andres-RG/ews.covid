@@ -52,6 +52,16 @@ ews_guanajuato_2020 <- uniEWS(data = data_gt_2020,
 )
 plot(ews_guanajuato_2020)
 
+ews_guanajuato_2020_1 <- uniEWS(data = data_gt_2020,
+                              metrics = ews_metrics,
+                              method = "expanding",
+                              burn_in = 10,
+                              threshold = 3,
+                              tail.direction = "one.tailed"
+)
+plot(ews_guanajuato_2020_1)
+
+
 data.uni.ews(ews_guanajuato_2020) ->ews_data_guanajuato_2020 #extraer los datos/funcion.
 ews_data_guanajuato_2020$time
 plot.univariate.ews.ggplot(ews_data_guanajuato_2020)-> ews_data_guanauato_plot_2020
@@ -59,3 +69,47 @@ plot.univariate.ews.ggplot(ews_data_guanajuato_2020)-> ews_data_guanauato_plot_2
 #OBJETO GGPLOT: 
 ews_data_guanauato_plot_2020 +labs(title = "GUANAJUATO 2020")+
   geom_hline(yintercept = c(2), col="red")
+
+################################################################################
+#2022:
+load("03_out/data/covid.mx.gt.2022.RData")
+  #covid.mx.gt.2022$CLASIFICACION_FINAL
+positivos_guanajuato_22 <- filter(covid.mx.gt.2022, CLASIFICACION_FINAL == 1|
+                                  CLASIFICACION_FINAL == 2|
+                                  CLASIFICACION_FINAL == 3)
+
+gt_2022 <- c()
+for ( i in 1:length(positivos_guanajuato_22$FECHA_SINTOMAS)) {
+  gt_2022 <-c(gt_2022, 1)
+}
+
+#INCIDENCIA DIARIA.
+positivos_gt_re_22 <- mutate(positivos_guanajuato_22, positivos = gt_2022)
+
+# Suma todos los positivos de un solo dia por fecha de inicio de sintomas
+positivos_gt_re_22 <- aggregate(positivos~FECHA_SINTOMAS, 
+                                data = positivos_gt_re_22,
+                                FUN = sum)
+
+# Genera otra columna en el objeto para agregar el numero de dia
+positivos_gt_re_22[,3] <- c(1:length(positivos_gt_re_22$FECHA_SINTOMAS))
+colnames(positivos_gt_re_22)[3] <- "num.dia" 
+positivos_gt_re_22
+
+#data frame univariadas.
+data_gt_2022 <- data.frame(
+  time = seq(1, length(positivos_gt_re_22$FECHA_SINTOMAS), 1) ,
+  casos = positivos_gt_re_22$positivos
+)
+
+#vector con las metricas univariadas: ews_metrics---
+ews_metrics <- c("SD","ar1","skew")
+
+ews_guanajuato_2022 <- uniEWS(data = data_gt_2022,
+                              metrics = ews_metrics,
+                              method = "expanding",
+                              burn_in = 10,
+                              threshold = 2,
+                              tail.direction = "one.tailed"
+)
+plot(ews_guanajuato_2022)

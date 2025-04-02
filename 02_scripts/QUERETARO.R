@@ -57,7 +57,9 @@ plot(ews_qt_2020)
   #dev.off()
 
 data.uni.ews(ews_qt_2020) ->ews_data_queretaro_2020 #extraer los datos/funcion.
-ews_data_queretaro_2020$time
+ews_data_queretaro_2020$ar1
+ews_data_queretaro_2020$threshold.crossed.SD
+
 plot.univariate.ews.ggplot(ews_data_queretaro_2020)-> ews_data_queretaro_plot_2020
 
 #OBJETO GGPLOT: 
