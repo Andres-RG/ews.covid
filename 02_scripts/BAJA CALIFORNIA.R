@@ -7,6 +7,9 @@ library(ggplot2)
 library(owidR)
 library(dplyr)
 
+source("04_functions/dataunvariateews.R")
+source("04_functions/plotewsunivariateggplot.R")
+
 #Procesamiento de los datos:
 ################################################################################
 #2020.
@@ -263,7 +266,7 @@ casos_positivos_bsur_2020 <- filter(covid.mx.bs.2020, CLASIFICACION_FINAL == 1 |
                                     CLASIFICACION_FINAL == 2 |
                                     CLASIFICACION_FINAL == 3 )
 
-
+##------------------------------------------------------------------------------
 avance <- function(datos){
   bc_20 <- c()
   for (i in 1:length(datos$FECHA_SINTOMAS)) {
@@ -279,6 +282,7 @@ avance <- function(datos){
   return(positivos_re_)
 
 }
+##------------------------------------------------------------------------------
 
 avance(casos_positivos_bsur_2020) ->bsur_incidencia_2020
 bsur_incidencia_2020
