@@ -71,6 +71,49 @@ ews_data_guanauato_plot_2020 +labs(title = "GUANAJUATO 2020")+
   geom_hline(yintercept = c(2), col="red")
 
 ################################################################################
+#2021:
+load("03_out/data/covid.mx.gt.2021.RData")
+  #covid.mx.qt.2021$CLASIFICACION_FINAL
+positivos_guanajuato_21 <- filter(covid.mx.gt.2021, CLASIFICACION_FINAL == 1 |
+                                    CLASIFICACION_FINAL == 2 |
+                                    CLASIFICACION_FINAL == 3 )
+
+#INCIDENCIA DIARIA.
+gt_2021 <- c()
+for (i in 1:length(positivos_guanajuato_21$FECHA_SINTOMAS)) {
+  gt_2021 <-c(gt_2021, 1)
+}
+positivos_gt_re_21 <- mutate(positivos_guanajuato_21, positivos = gt_2021)
+
+# Suma todos los positivos de un solo dia por fecha de inicio de sintomas
+positivos_gt_re_21 <- aggregate(positivos~FECHA_SINTOMAS, 
+                                data = positivos_gt_re_21,
+                                FUN = sum)
+
+# Genera otra columna en el objeto para agregar el numero de dia
+positivos_gt_re_21 [,3] <- c(1:length(positivos_gt_re_21$FECHA_SINTOMAS))
+colnames(positivos_gt_re_21)[3] <- "num.dia" 
+positivos_gt_re_21
+
+#data frame univariadas.
+data_gt_2021 <- data.frame(
+  time = seq(1, length(positivos_gt_re_21$FECHA_SINTOMAS), 1) ,
+  casos = positivos_gt_re_21$positivos
+)
+#vector con las metricas univariadas: ews_metrics---
+ews_metrics <- c("SD","ar1","skew")
+
+ews_guanajuato_2021 <- uniEWS(data = data_gt_2021,
+                              metrics = ews_metrics,
+                              method = "expanding",
+                              burn_in = 10,
+                              threshold = 2,
+                              tail.direction = "one.tailed"
+)
+plot(ews_guanajuato_2021)
+
+
+################################################################################
 #2022:
 load("03_out/data/covid.mx.gt.2022.RData")
   #covid.mx.gt.2022$CLASIFICACION_FINAL
