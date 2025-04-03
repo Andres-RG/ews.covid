@@ -11,6 +11,7 @@ library(dplyr)
 source("04_functions/dataunvariateews.R")
 source("04_functions/plotewsunivariateggplot.R")
 source("04_functions/incidencia.R")
+
 ################################################################################
 load("03_out/data/covid_oaxaca_2020.RData")
 load("03_out/data/covid_oaxaca_2021.RData")
