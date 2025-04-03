@@ -78,8 +78,43 @@ ews_tlaxcala_plot_2022 +labs(title = "TLAXCALA", subtitle = "2022")+
 
 
 ################################################################################
-#2023
-  #covid_tlaxcala_2021
+#2021
+  #covid_tlaxcla_2021
+tlaxcala_positivos_21 <- filter(covid_tlaxcla_2021, CLASIFICACION_FINAL ==1 |
+                                  CLASIFICACION_FINAL == 2|
+                                  CLASIFICACION_FINAL == 3)
+
+avance(tlaxcala_positivos_21)-> incidencia_tlaxcala_21
+incidencia_tlaxcala_21
+
+ews_analisis(incidencia_tlaxcala_21)-> ews_tlaxcala_21
+
+plot(ews_tlaxcala_21)
+
+data.uni.ews(ews_tlaxcala_21) ->ews_tlaxcala_2021 #extraer los datos/funcion.
+plot.univariate.ews.ggplot(ews_tlaxcala_2021)-> ews_tlaxcala_plot_2021
+
+#OBJETO GGPLOT: 
+ews_tlaxcala_plot_2021 +labs(title = "TLAXCALA", subtitle = "2021")+
+  geom_hline(yintercept = c(2), col = "red")
+
 ################################################################################
 #2024-5
-  #covid_tlaxcala_2024
+  covid_tlaxcala_2024$CLASIFICACION_FINAL_COVID
+
+tlaxcala_positivos_24 <- filter(covid_tlaxcala_2024, CLASIFICACION_FINAL_COVID ==1 |
+                                  CLASIFICACION_FINAL_COVID == 2|
+                                  CLASIFICACION_FINAL_COVID == 3)
+
+avance(tlaxcala_positivos_24)-> incidencia_tlaxcala_24
+incidencia_tlaxcala_24
+
+ews_analisis(incidencia_tlaxcala_24)-> ews_tlaxcala_24
+plot(ews_tlaxcala_24)
+
+data.uni.ews(ews_tlaxcala_24) ->ews_tlaxcala_2024 #extraer los datos/funcion.
+plot.univariate.ews.ggplot(ews_tlaxcala_2024)-> ews_tlaxcala_plot_2024
+
+#OBJETO GGPLOT: 
+ews_tlaxcala_plot_2024 +labs(title = "TLAXCALA", subtitle = "2024")+
+  geom_hline(yintercept = c(2), col = "red")
