@@ -257,6 +257,8 @@ covid.mx.cl.2021 <- covid.mx.ss.2021 %>% filter(ENTIDAD_UM == 05)
 covid.mx.cl.2020 <- covid.mx.ss.2020 %>% filter(ENTIDAD_UM == 05)
   #save(covid.mx.cl.2020, file = "03_out/data/covid.mx.cl.2020.RData")
 ################################################################################
+
+################################################################################
 #Guanajuato
 #11	GUANAJUATO	GT
 #2024
@@ -278,4 +280,26 @@ covid.mx.gt.2021 <- covid.mx.ss.2021 %>% filter(ENTIDAD_UM == 11)
 #2020
 covid.mx.gt.2020 <- covid.mx.ss.2020 %>% filter(ENTIDAD_UM == 11)
   #save(covid.mx.gt.2020, file = "03_out/data/covid.mx.gt.2020.RData")
-  
+
+################################################################################
+#31	YUCATÁN	YN
+#2024
+covid.yucatan.2024 <- covid.mx.ss %>% filter(ENTIDAD_UM == 31)
+  save(covid.yucatan.2024, file = "03_out/data/covid.yucatan.2024.RData")  
+
+#2023
+covid.yucatan.2023 <- covid.mx.ss.2023 %>% filter(ENTIDAD_UM == 31)
+  save(covid.yucatan.2023, file ="03_out/data/covid.yucatan.2023.RData")
+
+#2022
+covid.yucatan.2022 <- covid.mx.ss.2022 %>% filter(ENTIDAD_UM == 31)
+  save(covid.yucatan.2022, file = "03_out/data/covid.yucatan.2022.RData")
+
+#2021 
+covid.yucatan.2021 <- covid.mx.ss.2021 %>% filter(ENTIDAD_UM == 31)
+  save(covid.yucatan.2021, file = "03_out/data/covid.yucatan.2021.RData")
+
+#2020
+covid.yucatan.2020 <- covid.mx.ss.2020 %>% filter(ENTIDAD_UM == 31)
+  save(covid.yucatan.2020, file = "03_out/data/covid.yucatan.2020.RData")
+################################################################################
