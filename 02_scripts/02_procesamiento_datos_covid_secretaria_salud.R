@@ -324,4 +324,27 @@ covid.yucatan.2020 <- covid.mx.ss.2020 %>% filter(ENTIDAD_UM == 31)
   #2020
   covid_oaxaca_2020 <- covid.mx.ss.2020 %>% filter(ENTIDAD_UM == 20)
   save(covid_oaxaca_2020, file = "03_out/data/covid_oaxaca_2020.RData")
+
+################################################################################
+#29	TLAXCALA	TL
+#2024
+  covid_tlaxcala_2024 <- covid.mx.ss %>% filter(ENTIDAD_UM == 29)
+  save(covid_tlaxcala_2024, file = "03_out/data/covid_tlaxcala_2024.RData")  
+  
+#2023
+  covid_tlaxcala_2023 <- covid.mx.ss.2023 %>% filter(ENTIDAD_UM == 29)
+  save(covid_tlaxcala_2023, file ="03_out/data/covid_tlaxcala_2023.RData")
+  
+#2022
+  covid_tlaxcla_2022 <- covid.mx.ss.2022 %>% filter(ENTIDAD_UM == 29)
+  save(covid_tlaxcla_2022, file = "03_out/data/covid_tlaxcla_2022.RData")
+  
+#2021 
+  covid_tlaxcla_2021 <- covid.mx.ss.2021 %>% filter(ENTIDAD_UM == 29 )
+  save(covid_tlaxcla_2021, file = "03_out/data/covid_tlaxcla_2021.RData")
+  
+#2020
+  covid_tlaxcala_2020 <- covid.mx.ss.2020 %>% filter(ENTIDAD_UM == 29)
+  save(covid_tlaxcala_2020, file = "03_out/data/covid_tlaxcala_2020.RData")
+
   
