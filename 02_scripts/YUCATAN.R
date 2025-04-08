@@ -39,13 +39,19 @@ yucatan_ews_20 <- uniEWS(data = yucatan_ewsdatos_20,
                           threshold = 2,
                           tail.direction = "one.tailed"
 )
+
+pdf("03_out/plots/ews_univariado_yucatan.20.pdf", height = 8, width = 10)
 plot(yucatan_ews_20)
+dev.off()
+
 data.uni.ews(yucatan_ews_20) ->ews_yucatan_2020 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_yucatan_2020)-> ews_yucatan_plot_2020
 
 #OBJETO GGPLOT: 
-ews_yucatan_plot_2020 +labs(title = "YUCATAN", subtitle = "2020")+
-  geom_hline(yintercept = c(2), col = "red")
+pdf("03_out/plots/ews_univariado_yucatan.20.1.pdf", height = 8, width = 10)
+plot(ews_yucatan_plot_2020 +labs(title = "YUCATAN", subtitle = "2020")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off
 
 ################################################################################
 #2021
@@ -69,13 +75,18 @@ yucatan_ews_21 <- uniEWS(data = yucatan_ewsdatos_21,
                          threshold = 2,
                          tail.direction = "one.tailed"
 )
+pdf("03_out/plots/ews_univariado_yucatan.21.pdf", height = 8, width = 10)
 plot(yucatan_ews_21)
+dev.off()
+
 data.uni.ews(yucatan_ews_21) ->ews_yucatan_2021 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_yucatan_2021)-> ews_yucatan_plot_2021
 
 #OBJETO GGPLOT: 
-ews_yucatan_plot_2021 +labs(title = "YUCATAN", subtitle = "2021")+
-  geom_hline(yintercept = c(2), col = "red")
+pdf("03_out/plots/ews_univariado_yucatan.21.1.pdf", height = 8, width = 10)
+plot(ews_yucatan_plot_2021 +labs(title = "YUCATAN", subtitle = "2021")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
 
 ################################################################################
 #2022
@@ -100,13 +111,18 @@ yucatan_ews_22 <- uniEWS(data = yucatan_ewsdatos_22,
                          threshold = 2,
                          tail.direction = "one.tailed"
 )
+pdf("03_out/plots/ews_univariado_yucatan.22.pdf", height = 8, width = 10)
 plot(yucatan_ews_22)
+dev.off()
+
 data.uni.ews(yucatan_ews_22) ->ews_yucatan_2022 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_yucatan_2022)-> ews_yucatan_plot_2022
 
 #OBJETO GGPLOT: 
-ews_yucatan_plot_2022 +labs(title = "YUCATAN", subtitle = "2022")+
-  geom_hline(yintercept = c(2), col = "red")
+pdf("03_out/plots/ews_univariado_yucatan.22.1.pdf", height = 8, width = 10)
+plot(ews_yucatan_plot_2022 +labs(title = "YUCATAN", subtitle = "2022")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
 
 ################################################################################
 #2023
@@ -131,13 +147,19 @@ yucatan_ews_23 <- uniEWS(data = yucatan_ewsdatos_23,
                          threshold = 2,
                          tail.direction = "one.tailed"
 )
+
+pdf("03_out/plots/ews_univariado_yucatan.23.pdf", height = 8, width = 10)
 plot(yucatan_ews_23)
+dev.off()
+
 data.uni.ews(yucatan_ews_23) ->ews_yucatan_2023 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_yucatan_2023)-> ews_yucatan_plot_2023
 
 #OBJETO GGPLOT: 
-ews_yucatan_plot_2023 +labs(title = "YUCATAN", subtitle = "2023")+
-  geom_hline(yintercept = c(2), col = "red")
+pdf("03_out/plots/ews_univariado_yucatan.23.1.pdf", height = 8, width = 10)
+plot(ews_yucatan_plot_2023 +labs(title = "YUCATAN", subtitle = "2023")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
 
 ################################################################################
 #2024-5
@@ -162,10 +184,15 @@ yucatan_ews_24 <- uniEWS(data = yucatan_ewsdatos_24,
                          threshold = 2,
                          tail.direction = "one.tailed"
 )
+pdf("03_out/plots/ews_univariado_yucatan.24.pdf", height = 8, width = 10)
 plot(yucatan_ews_24)
+dev.off()
+
 data.uni.ews(yucatan_ews_24) ->ews_yucatan_2024 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_yucatan_2024)-> ews_yucatan_plot_2024
 
 #OBJETO GGPLOT: 
-ews_yucatan_plot_2024 +labs(title = "YUCATAN", subtitle = "2024-5")+
-  geom_hline(yintercept = c(2), col = "red")
+pdf("03_out/plots/ews_univariado_yucatan.24-5.1.pdf", height = 8, width = 10)
+plot(ews_yucatan_plot_2024 +labs(title = "YUCATAN", subtitle = "2024-5")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
