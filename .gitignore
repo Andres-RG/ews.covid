@@ -4,3 +4,5 @@
 .Ruserdata
 03_out/data/COVID19MEXICO2021.RData
 .gitignore
+03_out/data/covid.mx.ss.2021.RData
+ews.covid.Rproj

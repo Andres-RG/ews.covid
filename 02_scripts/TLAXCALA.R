@@ -29,7 +29,10 @@ tlaxcala_incidencia_20
 
 ews_analisis(tlaxcala_incidencia_20) -> tlaxcala_2020
 
+pdf("03_out/plots/ews_univariado_tlaxcala.20.pdf", height = 8, width = 10)
 plot(tlaxcala_2020)
+dev.off()
+
 data.uni.ews(tlaxcala_2020) ->ews_tlaxcala_2020 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_tlaxcala_2020)-> ews_tlaxcala_plot_2020
 
@@ -37,7 +40,10 @@ plot.univariate.ews.ggplot(ews_tlaxcala_2020)-> ews_tlaxcala_plot_2020
 ews_tlaxcala_plot_2020 +labs(title = "TLAXCALA", subtitle = "2020")+
   geom_hline(yintercept = c(2), col = "red")
 
-
+pdf("03_out/plots/ews_univariado_tlaxcala.20.1.pdf", height = 8, width = 10)
+plot(ews_tlaxcala_plot_2020+labs(title = "TLAXCALA", subtitle = "2020")+
+       geom_hline(yintercept = c(2), col = "red"))
+dev.off()
 ################################################################################
 #2023
   #covid_tlaxcala_2023
@@ -50,13 +56,20 @@ tlaxcala_incidencia_23
 
 ews_analisis(tlaxcala_incidencia_23) -> tlaxcala_2023
 
+pdf("03_out/plots/ews_univariado_tlaxcala.23.pdf", height = 8, width = 10)
 plot(tlaxcala_2023)
+dev.off()
+
 data.uni.ews(tlaxcala_2023) ->ews_tlaxcala_2023 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_tlaxcala_2023)-> ews_tlaxcala_plot_2023
 
-#OBJETO GGPLOT: 
-ews_tlaxcala_plot_2023 +labs(title = "TLAXCALA", subtitle = "2023")+
-  geom_hline(yintercept = c(2), col = "red")
+#OBJETO GGPLOT:
+
+pdf("03_out/plots/ews_univariado_tlaxcala.23.1.pdf", height = 8, width = 10)
+plot(ews_tlaxcala_plot_2023 +labs(title = "TLAXCALA", subtitle = "2023")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
+
 ################################################################################
 #2022
   #covid_tlaxcla_2022
@@ -68,13 +81,19 @@ avance(tlaxcala_positivos_22)-> incidencia_tlaxcala_22
 
 
 ews_analisis(incidencia_tlaxcala_22)-> ews_tlaxcala_22
+
+pdf("03_out/plots/ews_univariado_tlaxcala.22.pdf", height = 8, width = 10)
 plot(ews_tlaxcala_22)
+dev.off()
+
 data.uni.ews(ews_tlaxcala_22) ->ews_tlaxcala_2022 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_tlaxcala_2022)-> ews_tlaxcala_plot_2022
 
 #OBJETO GGPLOT: 
-ews_tlaxcala_plot_2022 +labs(title = "TLAXCALA", subtitle = "2022")+
-  geom_hline(yintercept = c(2), col = "red")
+pdf("03_out/plots/ews_univariado_tlaxcala.22.1.pdf", height = 8, width = 10)
+plot(ews_tlaxcala_plot_2022 +labs(title = "TLAXCALA", subtitle = "2022")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
 
 
 ################################################################################
@@ -89,14 +108,19 @@ incidencia_tlaxcala_21
 
 ews_analisis(incidencia_tlaxcala_21)-> ews_tlaxcala_21
 
+pdf("03_out/plots/ews_univariado_tlaxcala.21.pdf", height = 8, width = 10)
 plot(ews_tlaxcala_21)
+dev.off()
 
 data.uni.ews(ews_tlaxcala_21) ->ews_tlaxcala_2021 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_tlaxcala_2021)-> ews_tlaxcala_plot_2021
 
 #OBJETO GGPLOT: 
-ews_tlaxcala_plot_2021 +labs(title = "TLAXCALA", subtitle = "2021")+
-  geom_hline(yintercept = c(2), col = "red")
+pdf("03_out/plots/ews_univariado_tlaxcala.21.1.pdf", height = 8, width = 10)
+plot(ews_tlaxcala_plot_2021 +labs(title = "TLAXCALA", subtitle = "2021")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
+
 
 ################################################################################
 #2024-5
@@ -110,11 +134,17 @@ avance(tlaxcala_positivos_24)-> incidencia_tlaxcala_24
 incidencia_tlaxcala_24
 
 ews_analisis(incidencia_tlaxcala_24)-> ews_tlaxcala_24
+
+pdf("03_out/plots/ews_univariado_tlaxcala.24.pdf", height = 8, width = 10)
 plot(ews_tlaxcala_24)
+dev.off()
+
 
 data.uni.ews(ews_tlaxcala_24) ->ews_tlaxcala_2024 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_tlaxcala_2024)-> ews_tlaxcala_plot_2024
 
 #OBJETO GGPLOT: 
-ews_tlaxcala_plot_2024 +labs(title = "TLAXCALA", subtitle = "2024")+
-  geom_hline(yintercept = c(2), col = "red")
+pdf("03_out/plots/ews_univariado_tlaxcala.24.1.pdf", height = 8, width = 10)
+plot(ews_tlaxcala_plot_2024 +labs(title = "TLAXCALA", subtitle = "2024")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
