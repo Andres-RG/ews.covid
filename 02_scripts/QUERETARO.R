@@ -52,9 +52,9 @@ ews_qt_2020 <- uniEWS(data = data_ews_qt_2020,
   tail.direction = "one.tailed"
 )
 plot(ews_qt_2020)
-  #pdf("03_out/plots/ews_qt_2020.univariado.pdf", height = 8, width = 10)
-  #plot(ews_qt_2020)
-  #dev.off()
+  pdf("03_out/plots/ews_qt_2020.univariado.pdf", height = 8, width = 10)
+  plot(ews_qt_2020)
+  dev.off()
 
 data.uni.ews(ews_qt_2020) ->ews_data_queretaro_2020 #extraer los datos/funcion.
 ews_data_queretaro_2020$ar1
@@ -63,7 +63,10 @@ ews_data_queretaro_2020$threshold.crossed.SD
 plot.univariate.ews.ggplot(ews_data_queretaro_2020)-> ews_data_queretaro_plot_2020
 
 #OBJETO GGPLOT: 
-ews_data_queretaro_plot_2020 +labs(title = "QUERETARO 2020")
+pdf("03_out/plots/ews_queretaro.20.1.pdf", height = 8, width = 10)
+ews_data_queretaro_plot_2020 +labs(title = "QUERETARO 2020")+
+  geom_hline(yintercept = c(2), col = "red")
+dev.off()
 
 #################################################################################
 ###2021:
@@ -103,16 +106,17 @@ ews_qt_2021 <- uniEWS(data = data_ews_qt_2021,
                       tail.direction = "one.tailed")
 plot(ews_qt_2021)
 ews_qt_2021$threshold
-  #pdf("03_out/plots/ews_qt_2021.univariado.pdf", height = 8, width = 10)
-  #plot(ews_qt_2021)
-  #dev.off()
+pdf("03_out/plots/ews_qt_2021.univariado.pdf", height = 8, width = 10)
+  plot(ews_qt_2021)
+  dev.off()
 data.uni.ews(ews_qt_2021) ->ews_data_queretaro_2021 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_data_queretaro_2021)-> ews_data_queretaro_plot_2021
 
 #OBJETO GGPLOT: 
+pdf("03_out/plots/ews_queretaro.21.1.pdf", height = 8, width = 10)
 ews_data_queretaro_plot_2021 +labs(title = "QUERETARO 2021")+
-  geom_hline(yintercept = c(2))
-  
+  geom_hline(yintercept = c(2), col ="red")
+dev.off()  
 
 ########################################################################################
 ###2022
@@ -151,15 +155,17 @@ ews_qt_2022 <- uniEWS(data = data_ews_qt_2022,
                       threshold = 2,
                       tail.direction = "one.tailed")
 plot(ews_qt_2022)
-  #pdf("03_out/plots/ews_qt_2022.univariado.pdf", height = 8, width = 10)
-  #plot(ews_qt_2022)
-  #dev.off()
+  pdf("03_out/plots/ews_qt_2022.univariado.pdf", height = 8, width = 10)
+  plot(ews_qt_2022)
+  dev.off()
 data.uni.ews(ews_qt_2022) ->ews_data_queretaro_2022 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_data_queretaro_2022)-> ews_data_queretaro_plot_2022
 
 #OBJETO GGPLOT: 
+pdf("03_out/plots/ews_queretaro.22.1.pdf", height = 8, width = 10)
 ews_data_queretaro_plot_2022 +labs(title = "QUERETARO 2022")+
-  geom_hline(yintercept = c(2))
+  geom_hline(yintercept = c(2), col = "orange")
+dev.off()
 ################################################################################
 #2023.
 load("03_out/data/covid.mx.qt.2023.RData")
@@ -196,15 +202,17 @@ ews_qt_2023 <- uniEWS(data = data_ews_qt_2023,
                       threshold = 2,
                       tail.direction = "one.tailed")
 plot(ews_qt_2023)
-  #pdf("03_out/plots/ews_qt_2023.univariado.pdf", height = 8, width = 10)
-  #plot(ews_qt_2023)
-  #dev.off()
+  pdf("03_out/plots/ews_qt_2023.univariado.pdf", height = 8, width = 10)
+  plot(ews_qt_2023)
+  dev.off()
 data.uni.ews(ews_qt_2023) ->ews_data_queretaro_2023 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_data_queretaro_2023)-> ews_data_queretaro_plot_2023
 
 #OBJETO GGPLOT: 
+pdf("03_out/plots/ews_queretaro.23.1.pdf", height = 8, width = 10)
 ews_data_queretaro_plot_2023 +labs(title = "QUERETARO 2023")+
   geom_hline(yintercept = c(2))
+dev.off()
 ####################################################################################
 #2024-5.
 load("03_out/data/covid.mx.qt.2024.RData")
@@ -241,13 +249,15 @@ ews_qt_2024 <- uniEWS(data = data_ews_qt_2024,
                       threshold = 2,
                       tail.direction = "one.tailed")
 plot(ews_qt_2024)
-  #pdf("03_out/plots/ews_qt_2024.univariado.pdf", height = 8, width = 10)
-  #plot(ews_qt_2024)
-  #dev.off()
+  pdf("03_out/plots/ews_qt_2024.univariado.pdf", height = 8, width = 10)
+  plot(ews_qt_2024)
+  dev.off()
 
 data.uni.ews(ews_qt_2024) ->ews_data_queretaro_2024 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_data_queretaro_2024)-> ews_data_queretaro_plot_2024
 
 #OBJETO GGPLOT: 
-ews_data_queretaro_plot_2024 +labs(title = "QUERETARO 2023", subtitle = "aumento de caos")+
+pdf("03_out/plots/ews_queretaro.23.1.pdf", height = 8, width = 10)
+ews_data_queretaro_plot_2024 +labs(title = "QUERETARO 2023")+
   geom_hline(yintercept = c(2), col="red")
+dev.off()

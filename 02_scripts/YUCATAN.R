@@ -51,7 +51,7 @@ plot.univariate.ews.ggplot(ews_yucatan_2020)-> ews_yucatan_plot_2020
 pdf("03_out/plots/ews_univariado_yucatan.20.1.pdf", height = 8, width = 10)
 plot(ews_yucatan_plot_2020 +labs(title = "YUCATAN", subtitle = "2020")+
   geom_hline(yintercept = c(2), col = "red"))
-dev.off
+dev.off()
 
 ################################################################################
 #2021
