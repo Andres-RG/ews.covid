@@ -46,8 +46,10 @@ data.uni.ews(oaxaca_ews_20) ->ews_oaxaca_2020 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_oaxaca_2020)-> ews_oaxaca_plot_2020
 
 #OBJETO GGPLOT: 
+pdf("03_out/plots/oaxaca.20.1.pdf", height = 8, width = 10)
 ews_oaxaca_plot_2020 +labs(title = "OAXACA", subtitle = "2020")+
   geom_hline(yintercept = c(2), col = "red")
+dev.off()
 ################################################################################
 #2021
   #covid_oaxaca_2021
@@ -76,8 +78,10 @@ data.uni.ews(oaxaca_ews_21) ->ews_oaxaca_2021 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_oaxaca_2021)-> ews_oaxaca_plot_2021
 
 #OBJETO GGPLOT: 
+pdf("03_out/plots/oaxaca.22.1.pdf", height = 8, width = 10)
 ews_oaxaca_plot_2021 +labs(title = "OAXACA", subtitle = "2021")+
   geom_hline(yintercept = c(2), col = "red")
+dev.off()
 ################################################################################
 #2022
   #covid_oaxaca_2022
@@ -106,8 +110,10 @@ data.uni.ews(oaxaca_ews_22) ->ews_oaxaca_2022 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_oaxaca_2022)-> ews_oaxaca_plot_2022
 
 #OBJETO GGPLOT: 
+pdf("03_out/plots/oaxaca.22.1.pdf", height = 8, width = 10)
 ews_oaxaca_plot_2022 +labs(title = "OAXACA", subtitle = "2022")+
   geom_hline(yintercept = c(2), col = "red")
+dev.off()
 ################################################################################
 #2023
   #covid_oaxaca_2023
@@ -136,8 +142,10 @@ data.uni.ews(oaxaca_ews_23) ->ews_oaxaca_2023 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_oaxaca_2023)-> ews_oaxaca_plot_2023
 
 #OBJETO GGPLOT: 
+pdf("03_out/plots/oaxaca.23.1.pdf", height = 8, width = 10)
 ews_oaxaca_plot_2023 +labs(title = "OAXACA", subtitle = "2023.NO señal")+
   geom_hline(yintercept = c(2), col = "red")
+dev.off()
 ################################################################################
 #2024-5
   #covid_oaxaca_2024$CLASIFICACION_FINAL_COVID
@@ -166,5 +174,7 @@ data.uni.ews(oaxaca_ews_24) ->ews_oaxaca_2024 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_oaxaca_2024)-> ews_oaxaca_plot_2024
 
 #OBJETO GGPLOT: 
+pdf("03_out/plots/oaxaca.24.1.pdf", height = 8, width = 10)
 ews_oaxaca_plot_2024 +labs(title = "OAXACA", subtitle = "2024-5")+
   geom_hline(yintercept = c(2), col = "red")
+dev.off()
