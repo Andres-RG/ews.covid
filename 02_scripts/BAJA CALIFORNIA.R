@@ -51,14 +51,19 @@ baja_ews_2020 <- uniEWS(data = baja_datosews_2020,
                       threshold = 2,
                       tail.direction = "one.tailed"
 )
+pdf("03_out/plots/ews_u_baja.20.pdf", height = 8, width = 10)
 plot(baja_ews_2020)
+dev.off()
 
 data.uni.ews(baja_ews_2020) ->ews_data_bajacalifornia_2020 #extraer los datos/funcion.
 
 plot.univariate.ews.ggplot(ews_data_bajacalifornia_2020)-> ews_data_bajacalifornia_plot_2020
 
 #OBJETO GGPLOT: 
-ews_data_bajacalifornia_plot_2020 +labs(title = "BC 2020")
+pdf("03_out/plots/ews_u_baja.20.1.pdf", height = 8, width = 10)
+plot(ews_data_bajacalifornia_plot_2020 +labs(title = "BC 2020")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
 
 ################################################################################
 #2021
@@ -100,14 +105,19 @@ baja_ews_2021 <- uniEWS(data = baja_datosews_2021,
                         threshold = 2,
                         tail.direction = "one.tailed"
 )
+pdf("03_out/plots/ews_u_baja.21.pdf", height = 8, width = 10)
 plot(baja_ews_2021)
+dev.off()
 
 data.uni.ews(baja_ews_2021) ->ews_data_bajacalifornia_2021 
 
 plot.univariate.ews.ggplot(ews_data_bajacalifornia_2021)-> ews_data_bajacalifornia_plot_2021
 
 #OBJETO GGPLOT: 
-ews_data_bajacalifornia_plot_2021 +labs(title = "BC 2021")
+pdf("03_out/plots/ews_u_baja.21.1.pdf", height = 8, width = 10)
+plot(ews_data_bajacalifornia_plot_2021 +labs(title = "BC 2021")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
 
 ################################################################################
 #2022
@@ -149,14 +159,19 @@ baja_ews_2022 <- uniEWS(data = baja_datosews_2022,
                         threshold = 2,
                         tail.direction = "one.tailed"
 )
+pdf("03_out/plots/ews_u_baja.22.pdf", height = 8, width = 10)
 plot(baja_ews_2022)
+dev.off()
 
 data.uni.ews(baja_ews_2022) ->ews_data_bajacalifornia_2022
 
 plot.univariate.ews.ggplot(ews_data_bajacalifornia_2022)-> ews_data_bajacalifornia_plot_2022
 
 #OBJETO GGPLOT: 
-ews_data_bajacalifornia_plot_2022 +labs(title = "BC 2022")
+pdf("03_out/plots/ews_u_baja.22.1.pdf", height = 8, width = 10)
+plot(ews_data_bajacalifornia_plot_2022 +labs(title = "BC 2022")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
 
 ################################################################################
 #2023
@@ -199,14 +214,19 @@ baja_ews_2023 <- uniEWS(data = baja_datosews_2023,
                         threshold = 2,
                         tail.direction = "one.tailed"
 )
+pdf("03_out/plots/ews_u_baja.23.pdf", height = 8, width = 10)
 plot(baja_ews_2023)
+dev.off()
 
 data.uni.ews(baja_ews_2023) ->ews_data_bajacalifornia_2023 #extraer los datos/funcion.
 
 plot.univariate.ews.ggplot(ews_data_bajacalifornia_2023)-> ews_data_bajacalifornia_plot_2023
 
 #OBJETO GGPLOT: 
-ews_data_bajacalifornia_plot_2023 +labs(title = "BC 2023")
+pdf("03_out/plots/ews_u_baja.23.1.pdf", height = 8, width = 10)
+plot(ews_data_bajacalifornia_plot_2023 +labs(title = "BC 2023")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
 
 ################################################################################
 #2024-5
@@ -246,14 +266,19 @@ baja_ews_2024 <- uniEWS(data = baja_datosews_2024,
                         threshold = 2,
                         tail.direction = "one.tailed"
 )
+pdf("03_out/plots/ews_u_baja.24.pdf", height = 8, width = 10)
 plot(baja_ews_2024)
+dev.off()
 
 data.uni.ews(baja_ews_2024) ->ews_data_bajacalifornia_2024
 
 plot.univariate.ews.ggplot(ews_data_bajacalifornia_2024)-> ews_data_bajacalifornia_plot_2024
 
 #OBJETO GGPLOT: 
-ews_data_bajacalifornia_plot_2024 +labs(title = "BC 2024")
+pdf("03_out/plots/ews_u_baja.24.1.pdf", height = 8, width = 10)
+plot(ews_data_bajacalifornia_plot_2024 +labs(title = "BC 2024")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
 
 ################################################################################
 ###BAJA CALIFORNIA SUR###
@@ -300,13 +325,19 @@ bsur_ews_2020 <- uniEWS(data = bajasur_datosews_2020,
                         threshold = 2,
                         tail.direction = "one.tailed"
 )
+#####################
+pdf("03_out/plots/ews_u_baja.sur.20.pdf", height = 8, width = 10)
 plot(bsur_ews_2020)
+dev.off()
+
 data.uni.ews(bsur_ews_2020) ->ews_bsur_2020 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_bsur_2020)-> ews_bsur_plot_2020
 
 #OBJETO GGPLOT: 
-ews_bsur_plot_2020 +labs(title = "BAJA CALIFORNIA", subtitle = "2020")+
-  geom_hline(yintercept = c(2), col = "red")
+pdf("03_out/plots/ews_u_baja.sur.20.1.pdf", height = 8, width = 10)
+plot(ews_bsur_plot_2020 +labs(title = "BAJA CALIFORNIA", subtitle = "2020")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
 
 #2021:
 load("03_out/data/covid.mx.bs.2021.RData")
@@ -331,13 +362,18 @@ bsur_ews_2021 <- uniEWS(data = bajasur_datosews_2021,
                         threshold = 2,
                         tail.direction = "one.tailed"
 )
+pdf("03_out/plots/ews_u_baja.sur.21.pdf", height = 8, width = 10)
 plot(bsur_ews_2021)
+dev.off()
+
 data.uni.ews(bsur_ews_2021) ->ews_bsur_2021 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_bsur_2021)-> ews_bsur_plot_2021
 
 #OBJETO GGPLOT: 
-ews_bsur_plot_2021 +labs(title = "BAJA CALIFORNIA", subtitle = "2021")+
-  geom_hline(yintercept = c(2), col = "red")
+pdf("03_out/plots/ews_u_baja.sur.21.1.pdf", height = 8, width = 10)
+plot(ews_bsur_plot_2021 +labs(title = "BAJA CALIFORNIA", subtitle = "2021")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
 
 #2022
 load("03_out/data/covid.mx.bs.2022.RData")
@@ -362,13 +398,18 @@ bsur_ews_2022 <- uniEWS(data = bajasur_datosews_2022,
                         threshold = 2,
                         tail.direction = "one.tailed"
 )
+pdf("03_out/plots/ews_u_baja.sur.22.pdf", height = 8, width = 10)
 plot(bsur_ews_2022)
+dev.off()
+
 data.uni.ews(bsur_ews_2022) ->ews_bsur_2022 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_bsur_2022)-> ews_bsur_plot_2022
 
 #OBJETO GGPLOT: 
-ews_bsur_plot_2022 +labs(title = "BAJA CALIFORNIA", subtitle = "2022")+
-  geom_hline(yintercept = c(2), col = "red")
+pdf("03_out/plots/ews_u_baja.sur.22.1.pdf", height = 8, width = 10)
+plot(ews_bsur_plot_2022 +labs(title = "BAJA CALIFORNIA", subtitle = "2022")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
 
 #2023
 load("03_out/data/covid.mx.bs.2023.RData")
@@ -392,14 +433,18 @@ bsur_ews_2023 <- uniEWS(data = bajasur_datosews_2023,
                         threshold = 2,
                         tail.direction = "one.tailed"
 )
+pdf("03_out/plots/ews_u_baja.sur.23.pdf", height = 8, width = 10)
 plot(bsur_ews_2023)
+dev.off()
+
 data.uni.ews(bsur_ews_2023) ->ews_bsur_2023 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_bsur_2023)-> ews_bsur_plot_2023
 
 #OBJETO GGPLOT: 
-ews_bsur_plot_2023 +labs(title = "BAJA CALIFORNIA", subtitle = "2023")+
-  geom_hline(yintercept = c(2), col = "red")
-
+pdf("03_out/plots/ews_u_baja.sur.23.1.pdf", height = 8, width = 10)
+plot(ews_bsur_plot_2023 +labs(title = "BAJA CALIFORNIA", subtitle = "2023")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
 
 #2024-5
 load("03_out/data/covid.mx.bs.2024.RData")
@@ -425,10 +470,15 @@ bsur_ews_2024 <- uniEWS(data = bajasur_datosews_2024,
                         threshold = 2,
                         tail.direction = "one.tailed"
 )
+pdf("03_out/plots/ews_u_baja.sur.24.pdf", height = 8, width = 10)
 plot(bsur_ews_2024)
+dev.off()
+
 data.uni.ews(bsur_ews_2024) ->ews_bsur_2024 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_bsur_2024)-> ews_bsur_plot_2024
 
 #OBJETO GGPLOT: 
-ews_bsur_plot_2024 +labs(title = "BAJA CALIFORNIA", subtitle = "2024")+
-  geom_hline(yintercept = c(2), col = "red")
+pdf("03_out/plots/ews_u_baja.sur.24-5.1.pdf", height = 8, width = 10)
+plot(ews_bsur_plot_2024 +labs(title = "BAJA CALIFORNIA", subtitle = "2024")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
