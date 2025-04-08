@@ -42,13 +42,18 @@ campeche_ews_20 <- uniEWS(data = campeche_ewsdatos_20,
                         threshold = 2,
                         tail.direction = "one.tailed"
 )
+pdf("03_out/plots/campeche.20.pdf", height = 8, width = 10)
 plot(campeche_ews_20)
+dev.off()
+
 data.uni.ews(campeche_ews_20) ->ews_campeche_2020 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_campeche_2020)-> ews_campeche_plot_2020
 
 #OBJETO GGPLOT: 
-ews_campeche_plot_2020 +labs(title = "CAMPECHE", subtitle = "2020")+
-  geom_hline(yintercept = c(2), col = "red")
+pdf("03_out/plots/campeche.20.1.pdf", height = 8, width = 10)
+plot(ews_campeche_plot_2020 +labs(title = "CAMPECHE", subtitle = "2020")+
+  geom_hline(yintercept = c(2), col = "red"))
+dev.off()
 
 
 #2021
@@ -59,6 +64,7 @@ campeche_positivos_21 <- filter(covid.mx.cc.2021, CLASIFICACION_FINAL ==1 |
 avance(campeche_positivos_21)->campeche_incidencia_21
 
 campeche_incidencia_21
+
 
 campeche_ewsdatos_21 <- data.frame(
   time = seq(1, length(campeche_incidencia_21$FECHA_SINTOMAS), 1) ,
@@ -73,13 +79,18 @@ campeche_ews_21 <- uniEWS(data = campeche_ewsdatos_21,
                           threshold = 2,
                           tail.direction = "one.tailed"
 )
+pdf("03_out/plots/campeche.21.pdf", height = 8, width = 10)
 plot(campeche_ews_21)
+dev.off()
+
 data.uni.ews(campeche_ews_21) ->ews_campeche_2021 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_campeche_2021)-> ews_campeche_plot_2021
 
 #OBJETO GGPLOT: 
+pdf("03_out/plots/campeche.21.1.pdf", height = 8, width = 10)
 ews_campeche_plot_2021+labs(title = "CAMPECHE", subtitle = "2021")+
   geom_hline(yintercept = c(2), col = "red")
+dev.off()
 
 
 #2022
@@ -106,14 +117,19 @@ campeche_ews_22 <- uniEWS(data = campeche_ewsdatos_22,
                           threshold = 2,
                           tail.direction = "one.tailed"
 )
+pdf("03_out/plots/campeche.22.pdf", height = 8, width = 10)
 plot(campeche_ews_22)
+dev.off()
+
+
 data.uni.ews(campeche_ews_22) ->ews_campeche_2022 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_campeche_2022)-> ews_campeche_plot_2022
 
 #OBJETO GGPLOT: 
+pdf("03_out/plots/campeche.22.1.pdf", height = 8, width = 10)
 ews_campeche_plot_2022+labs(title = "CAMPECHE", subtitle = "2022")+
   geom_hline(yintercept = c(2), col = "red")
-
+dev.off()
 
 #2023
 covid.mx.cc.2023$CLASIFICACION_FINAL
@@ -139,14 +155,18 @@ campeche_ews_23 <- uniEWS(data = campeche_ewsdatos_23,
                           threshold = 2,
                           tail.direction = "one.tailed"
 )
+pdf("03_out/plots/campeche.23.pdf", height = 8, width = 10)
 plot(campeche_ews_23)
+dev.off()
+
 data.uni.ews(campeche_ews_23) ->ews_campeche_2023 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_campeche_2023)-> ews_campeche_plot_2023
 
 #OBJETO GGPLOT: 
+pdf("03_out/plots/campeche.23.1.pdf", height = 8, width = 10)
 ews_campeche_plot_2023+labs(title = "CAMPECHE", subtitle = "2023")+
   geom_hline(yintercept = c(2), col = "red")
-
+dev.off()
 
 #2024-5
 covid.mx.cc.2024$CLASIFICACION_FINAL_COVID
@@ -172,11 +192,15 @@ campeche_ews_24 <- uniEWS(data = campeche_ewsdatos_24,
                           threshold = 2,
                           tail.direction = "one.tailed"
 )
+pdf("03_out/plots/campeche.24.pdf", height = 8, width = 10)
 plot(campeche_ews_24)
+dev.off()
+
 data.uni.ews(campeche_ews_24) ->ews_campeche_2024 #extraer los datos/funcion.
 plot.univariate.ews.ggplot(ews_campeche_2024)-> ews_campeche_plot_2024
 
 #OBJETO GGPLOT: 
+pdf("03_out/plots/campeche.24-5.1.pdf", height = 8, width = 10)
 ews_campeche_plot_2024+labs(title = "CAMPECHE", subtitle = "2024")+
   geom_hline(yintercept = c(2), col = "red")
-
+dev.off()
